@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://julesnoel-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio website of Jules Noël.2"
+title = "Portfolio website of Jules Noël.3"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
