@@ -49,7 +49,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "Projects"
-      url = "blogs"
+      url = "projects"
 
     [[params.navigation.links]]
       name = "My CV"
@@ -69,7 +69,7 @@ disqusShortname = ""
     # Button Style 1
     [[params.navigation.button1]]
       name = "Get Started"
-      url = "blogs"
+      url = "projects"
 
     # Button Style 2
     [[params.navigation.button2]]
