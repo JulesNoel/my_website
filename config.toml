@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Wonderful first website"
+    title = "Jules Noël"
     subtitle = "A data analytics work"
     menu = "Menu"
     # Optional logo as brand stored in img/
@@ -48,16 +48,16 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "Blogs"
+      name = "Projects"
       url = "blogs"
 
     [[params.navigation.links]]
-      name = "Generic Blog"
+      name = "My CV"
       url = "blogs/ipsum"
 
-    [[params.navigation.links]]
-      name = "Elements"
-      url = "elements.html"
+   # [[params.navigation.links]]
+     # name = "Elements"
+     # url = "elements.html"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, welcome to my website"
-    subtitle = "Noël means Christmas in French, so how cool is that?"
+    subtitle = "You will find more about me and my recent projects"
     buttonText = "Get to know me"
 
 
@@ -180,9 +180,9 @@ disqusShortname = ""
 
     [[params.contact.address]]
     title = "Address"
-    #street = "Street"
-  #  city = "City, ST 00000"
-    country = "Based in Belgium, but travelling around the world"
+    street = "Regent's Park"
+    city = "London, NW1 4SA"
+    country = "United Kingdom"
 
   # Footer section
   #[params.footer]
