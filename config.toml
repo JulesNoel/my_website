@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://julesnoel-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio website of Jules Noël.3"
+title = "Portfolio website of Jules Noël"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -20,7 +20,7 @@ disqusShortname = ""
 
   # Provide your metadata here.
   name = "Jules Noël"
-  description = "My first attempt at the creation of a website"
+  description = "A preview about me and my R works"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "Wonderful first website"
-    subtitle = "By Jules in Data Analytics for Finance"
+    subtitle = "A data analytics work"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -92,14 +92,14 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Test"
-      subtitle = "Ipsum Dolor Sit Amet"
+      title = "Biography"
+      subtitle = "My first work in R"
       image = "pic01.jpg"
       url = "blogs/aliquam"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
+      title = "A Movie List"
+      subtitle = "Constructing my watch list"
       image = "pic02.jpg"
       url = "blogs/tempus"
 
