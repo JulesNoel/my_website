@@ -1,0 +1,177 @@
+---
+title: "Project 1"
+author: "Jules"
+date: "15/10/2020"
+output: html_document
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, setup2, warning=FALSE, message=FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r, load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(ggrepel)
+library(gggenes)
+library(scales)
+library(devtools)
+library(patchwork)
+library(tidytext)
+```
+
+# Watching List
+
+Nowadays I don't really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position. 
+
+So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found. 
+
+In order to construct such list, I am going to explore the data `movies` used during our first assignment in Data Analytics in Finance. 
+
+Let's first remind ourselves the composition of the data set. 
+
+```{r,load_movies, warning=FALSE, message=FALSE}
+# Reading the data and analyzing the information
+movies <- read_csv(here::here("data", "movies.csv"))
+
+# I use glimpe and skim to explore the data
+skim(movies)
+glimpse(movies)
+```
+
+Fortunately, there is no missing values in the data set. It is also already cleaned and tidy. 
+However, we see that there are some duplicates so let's remove them. I am goignto remove these duplicates.
+
+```{r}
+# Removing duplicates
+movies_new <- movies %>% 
+  distinct(title, .keep_all= TRUE)
+```
+
+I can now begin my analysis. 
+
+I will begin by filtering the movies by the year of production, I want to focus my attention to the most recent blockbusters since 2000. Then, I'll see the distribution for each year and by year of the number of movies. 
+
+```{r}
+movies_new <- movies_new %>%
+  filter(year >= 2000)
+
+# Creating a plot
+ggplot(movies_new, 
+       aes(
+         x = year)) +
+  # Designing the graph 
+  geom_histogram(fill = "cyan", colour = "black", alpha = 0.4)+
+  
+  # Labeling the axes
+  labs(
+    x = "Year", 
+    y = " Count", 
+    title = "Most are porduce evenly among the years"
+  )
+```
+We see that the movies are well spread over the years, expect for two years.
+I now want to see the genre categories with the most movies. 
+
+```{r}
+# Counting by genre
+movies_new %>%
+  count(genre) %>%
+  # Arranging in descending order
+  arrange(desc(n))
+```
+
+Also, I like very long movies, I'll thus filter by duration and take movies that last only 2h30 or more.
+
+```{r}
+# Filtering movies over 150 minutes in duration
+movies_new <- movies_new %>% 
+  filter(duration > 150)
+```
+
+I would like to have an idea of the rating average among the genres, I will only watch movies from the four highest ranked genre in our data set.
+Let's use a boxplot to see this.
+
+```{r}
+# Plotting movies by genre
+ggplot(movies_new, 
+       aes( 
+         x = reorder(genre, rating), 
+         y = rating, 
+         colour = genre)) +
+  geom_boxplot() +
+  
+  # Labeling the axes
+  labs(
+    title = "Adventure and Crime are the highest rated categories in our sample", 
+    y = "Rating", 
+    x = "Genre") +
+  
+  # Setting the theme and removing the legend
+  theme_bw() + 
+  theme(legend.position = "none")
+```
+
+As said earlier, I am now removing the the three least well rated genre. 
+
+```{r}
+# Remove Comedy and Mystery
+movies_final <- movies_new %>% 
+  filter(genre %in% c("Drama", "Biography", "Crime", "Adventure"))
+```
+
+However, if I keep my list as such, I will simply have too much movies on it. I need to find a way to reduce it. 
+I think that the number of facebook likes might be of interest, I'll only select movies with a rating higher than 7.5.
+```{r}
+movies_final <- movies_final %>%
+  select(title, cast_facebook_likes,  year, rating, duration, genre) %>% 
+  filter(rating > 7.5) %>% 
+  arrange(desc(cast_facebook_likes)) 
+
+movies_final  
+```
+
+And voila, I now have my watch list, I'll watch the movies in order of facebook likes.
+
+For fun, I'll also calculate the time needed to complete my watch list, in terms of hours but also in terms of days, assuming I can watch 8 hours per day.
+
+```{r}
+movies_duration <- movies_final %>%
+  group_by(genre) %>% 
+  summarise(total_time = sum(duration)/60, 
+            days = total_time/8) %>% 
+  arrange(desc(total_time))
+
+movies_duration
+
+```
+We see that I will watch mostly Drama movies in terms of duration, with no less than 4 days to complete this single genre. 
+
+I cannot wait to begin the first movie: **The revenant** with Leonardo Di Caprio.
+
+![The Revenant](https://m.media-amazon.com/images/M/MV5BMDE5OWMzM2QtOTU2ZS00NzAyLWI2MDEtOTRlYjIxZGM0OWRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UX182_CR0,0,182,268_AL_.jpg)
