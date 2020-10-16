@@ -101,7 +101,7 @@ disqusShortname = ""
       title = "A Movie List"
       subtitle = "Constructing my watch list"
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "projects/blog1"
 
     [[params.tiles.showcase]]
       title = "Magna"
