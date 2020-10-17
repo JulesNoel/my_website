@@ -13,8 +13,9 @@
       <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project2/</guid>
-      <description>Where Do People Drink The Most Beer, Wine And Spirits?# Loading the datalibrary(fivethirtyeight)data(drinks)We’ll check first for any missing variable. Fortunately, our dataset is complete and we have no missing values.
-# Using glimpse and skim to understand the dataframeglimpse(drinks)## Rows: 193## Columns: 5## $ country &amp;lt;chr&amp;gt; &amp;quot;Afghanistan&amp;quot;, &amp;quot;Albania&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;...## $ beer_servings &amp;lt;int&amp;gt; 0, 89, 25, 245, 217, 102, 193, 21, 261.</description>
+      <description>Where Do People Drink The Most Beer, Wine And Spirits?In this project realised with my group at London Business School for the course “Data Analytics for Finance”, we will explore a dataset on the consumption and production of alcohol.
+# Loading the datalibrary(fivethirtyeight)data(drinks)We’ll check first for any missing variable. Fortunately, our dataset is complete and we have no missing values.
+# Using glimpse and skim to understand the dataframeglimpse(drinks)## Rows: 193## Columns: 5## $ country &amp;lt;chr&amp;gt; &amp;quot;Afghanistan&amp;quot;, &amp;quot;Albania&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;.</description>
     </item>
     
     <item>
@@ -86,6 +87,16 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     </item>
     
     <item>
+      <title>Pre-programme Assignment 1</title>
+      <link>/projects/biography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/biography/</guid>
+      <description>BiographyUntil nowMy name is Jules, I am 21 years old from Belgium and here is my biography.
+From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the simple things in life, tried a few sports such as Basketball, fencing on a competing level, or even rowing - at least, I tried, and fell in the water more times than I actually rowed. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen.</description>
+    </item>
+    
+    <item>
       <title>Project 1</title>
       <link>/blogs/blog1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -105,6 +116,26 @@ In order to construct such list, I am going to explore the data movies used duri
       <description>Watching ListNowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.
 So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found.
 In order to construct such list, I am going to explore the data movies used during our first assignment in Data Analytics in Finance.</description>
+    </item>
+    
+    <item>
+      <title>project5</title>
+      <link>/projects/project5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project5/</guid>
+      <description>Returns of financial stocksAs usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.
+#Loading the data and getting its Summarynyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;))skim(nyse)(#tab:load_nyse_data)Data summaryNamenyseNumber of rows508Number of columns6_______________________Column type frequency:character6________________________Group variablesNoneVariable type: character</description>
+    </item>
+    
+    <item>
+      <title>project6</title>
+      <link>/projects/project6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project6/</guid>
+      <description>Returns of financiaChallenge 2: 2016 California Contributors plotsAs discussed in class, I would like you to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
+CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))zip_code &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.csv&amp;quot;))#Assigning a numerical value to the zip code column of the databasezip_code &amp;lt;- zip_code %&amp;gt;% mutate(zip = as.numeric(zip))#Merging the two data framesCA_contributors_2016 &amp;lt;- CA_contributors_2016 %&amp;gt;% inner_join(zip_code, by = &amp;quot;zip&amp;quot;)#Cleaning the data frames in order to only have the variables we want to analyzeCA_contributors_2016_adapted &amp;lt;- CA_contributors_2016 %&amp;gt;%group_by(cand_nm,primary_city) %&amp;gt;% summarise(total_amt = sum(contb_receipt_amt)) %&amp;gt;% select(candidate = cand_nm, city = primary_city, money_raised = total_amt)# Plotting Hillary Clinton&amp;#39;s top 10 contribution citiesclinton &amp;lt;- CA_contributors_2016_adapted %&amp;gt;%filter(candidate == &amp;quot;Clinton, Hillary Rodham&amp;quot;) %&amp;gt;%top_n(10, wt = money_raised) %&amp;gt;% ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + geom_col(fill = &amp;quot;blue&amp;quot;) + facet_grid(.</description>
     </item>
     
   </channel>

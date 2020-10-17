@@ -92,11 +92,23 @@
   </url>
   
   <url>
+    <loc>/projects/biography/</loc>
+  </url>
+  
+  <url>
     <loc>/blogs/blog1/</loc>
   </url>
   
   <url>
     <loc>/projects/project1/</loc>
+  </url>
+  
+  <url>
+    <loc>/projects/project5/</loc>
+  </url>
+  
+  <url>
+    <loc>/projects/project6/</loc>
   </url>
   
 </urlset>

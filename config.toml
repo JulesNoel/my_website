@@ -49,7 +49,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "Projects"
-      url = "projects"
+      url = "content/projects/australia"
 
     [[params.navigation.links]]
       name = "My CV"
@@ -91,11 +91,11 @@ disqusShortname = ""
     enable = true
     # Display your showcases here.
     
-    #[[params.tiles.showcase]]
-    #title = "Biography"
-     # subtitle = "My first work in R"
-    #  image = "pic01.jpg"
-    #  url = "blogs/aliquam"
+    [[params.tiles.showcase]]
+    title = "Biography"
+      subtitle = "My first work in R"
+      image = "projects/julesjpg.jpg"
+      url = "projects/biography"
 
     [[params.tiles.showcase]]
       title = "A Movie List"
@@ -110,23 +110,29 @@ disqusShortname = ""
       url = "projects/project2"
 
     [[params.tiles.showcase]]
-     title = "Home2"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
+     title = "Climate Change"
+      subtitle = "How temperatures are increasing"
+      image = "projects/climate.jpg"
       url = "projects/project3"
 
     [[params.tiles.showcase]]
-      title = "Home3"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
+      title = "The genius of Steven Spilberg"
+      subtitle = ""
+      image = "projects/IMBD.jpg"
       url = "projects/project4"
 
-  #  [[params.tiles.showcase]]
-   #   title = "Etiam"
-    #  subtitle = "Feugiat Amet Tempus"
-     # image = "pic06.jpg"
-    #  url = "blogs/ipsum"
-    # You can make more showcases by copy and pasting the code above
+    [[params.tiles.showcase]]
+      title = "Returns of Financial Stocks"
+      subtitle = ""
+      image = "projects/sotcks.jpg"
+      url = "projects/project5"
+      
+      [[params.tiles.showcase]]
+      title = "2016 California Contributors plots"
+      subtitle = ""
+      image = "projects/california.jpg"
+      url = "projects/project6"
+     You can make more showcases by copy and pasting the code above
 
   [params.blog]
     # All blogs defined in their own files. You can find example blogs

@@ -1,0 +1,102 @@
+---
+title: "project6"
+author: "Jules"
+date: "17/10/2020"
+output: html_document
+---
+
+
+
+<div id="challenge-2-2016-california-contributors-plots" class="section level1">
+<h1>Challenge 2: 2016 California Contributors plots</h1>
+<p>As discussed in class, I would like you to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
+<p><img src="C:/Users/NOEL Jules/Music/Data Analysis/Individual Web Portfolio/my_website/images/challenge2.png" width="100%" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
+zip_code &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
+
+#Assigning a numerical value to the zip code column of the database
+zip_code &lt;- zip_code %&gt;% 
+  mutate(zip = as.numeric(zip))
+
+#Merging the two data frames
+CA_contributors_2016 &lt;- CA_contributors_2016 %&gt;% 
+  inner_join(zip_code, by =  &quot;zip&quot;)
+
+#Cleaning the data frames in order to only have the variables we want to analyze
+CA_contributors_2016_adapted &lt;- CA_contributors_2016 %&gt;%
+  group_by(cand_nm,primary_city) %&gt;% 
+  summarise(total_amt = sum(contb_receipt_amt)) %&gt;% 
+  select(candidate = cand_nm, city = primary_city, money_raised = total_amt)
+
+# Plotting Hillary Clinton&#39;s top 10 contribution cities
+clinton &lt;- CA_contributors_2016_adapted %&gt;%
+  filter(candidate == &quot;Clinton, Hillary Rodham&quot;) %&gt;%
+  top_n(10, wt = money_raised) %&gt;% 
+  ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + 
+  geom_col(fill = &quot;blue&quot;) +   
+  facet_grid(.~candidate) +
+  scale_x_continuous(label=dollar) + 
+  theme_update(plot.title = element_text(hjust = 1)) + 
+  theme(strip.background = element_rect(fill = &quot;grey&quot;), 
+        stip.text = element_text(size = 10, color = &quot;black&quot;)) + 
+  labs(title = NULL, subtitile = NULL, x= NULL, y=NULL)+
+  theme_bw()
+
+# Plotting Donald Trump&#39;s top 10 contribution cities
+trump &lt;- CA_contributors_2016_adapted %&gt;%
+  filter(candidate == &quot;Trump, Donald J.&quot;) %&gt;%
+  top_n(10, wt = money_raised) %&gt;% 
+  ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + 
+  geom_col(fill = &quot;red&quot;) +   
+  facet_grid(.~candidate) +
+  scale_x_continuous(label=dollar) + 
+  theme_update(plot.title = element_text(hjust = 1)) + 
+  theme(strip.background = element_rect(fill = &quot;grey&quot;), 
+        stip.text = element_text(size = 10, color = &quot;black&quot;)) + 
+  labs(title = NULL, subtitile = NULL, x= NULL, y=NULL)+
+  theme_bw()
+
+# Combining the 2 graphs together and adding title
+clinton_trump_top10 &lt;- clinton + trump +
+  plot_annotation(title = &quot;Where did candidates raise most money?&quot;, caption = &quot;Amount Raised&quot;) 
+  theme_update(plot.title = element_text(size = 10, hjust = 0.1, face = &quot;bold&quot;),
+               aspect.ratio = 9/4,
+               plot.caption = element_text(hjust = 0.55, vjust = 0.5, face = &quot;bold&quot;))
+
+# Save the graph to then display it
+ggsave(&quot;challenge_accepted.jpg&quot;, plot = clinton_trump_top10, width = 9, height = 4, path = here::here(&quot;images&quot;))
+
+# Display groph
+knitr::include_graphics(here::here(&quot;images&quot;, &quot;challenge_accepted.jpg&quot;))</code></pre>
+<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/challenge_accepted.jpg" width="1350" style="display: block; margin: auto;" /></p>
+<p>In order to create the same plot for the top 10 candidates instead of just top 2, our codes are as follow:</p>
+<pre class="r"><code># We need to by candidates and select the top 10
+top_10_candidates &lt;- CA_contributors_2016 %&gt;%
+  group_by(cand_nm) %&gt;%
+  summarize(contb_total_amt=sum(contb_receipt_amt)) %&gt;%
+  top_n(10, contb_total_amt) %&gt;%
+  arrange(desc(contb_total_amt))
+
+# create a list for top 10 candidates&#39; names
+top_10_candidates &lt;- top_10_candidates$cand_nm
+
+# create the plot
+plot_top_10 &lt;- CA_contributors_2016_adapted %&gt;%
+  group_by(candidate) %&gt;%
+  filter(candidate %in% top_10_candidates) %&gt;%
+  top_n(10, money_raised) %&gt;%
+  ggplot(aes(x=money_raised,y=reorder_within(city,money_raised,candidate)))+
+  geom_col()+
+  scale_y_reordered()+
+  facet_wrap(~candidate,scales=&#39;free&#39;)+
+  labs(title =&#39;Where did candidates raise most money?&#39;, x = NULL, y = NULL) +
+  scale_x_continuous(label=dollar) + 
+  theme_bw()
+
+# save the plot
+ggsave(&quot;top10plot.png&quot;,plot=plot_top_10,width = 15,height = 10, path = here::here(&quot;images&quot;))
+
+# show the plot
+knitr::include_graphics(here::here(&quot;images&quot;, &quot;top10plot.png&quot;))</code></pre>
+<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/top10plot.png" width="2250" style="display: block; margin: auto;" /></p>
+</div>
