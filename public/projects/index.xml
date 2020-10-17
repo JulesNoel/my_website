@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 17 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Session 2: Homework 1</title>
+      <title>Alcohol Consumption</title>
       <link>/projects/project2/</link>
       <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
       
@@ -19,28 +19,61 @@
     </item>
     
     <item>
-      <title>Session 4: Homework 2</title>
+      <title>Climate Change Anomalies</title>
       <link>/projects/project3/</link>
       <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project3/</guid>
-      <description>Climate change and temperature anomaliesBeforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
-tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for
-year,month, anddelta, or temperature deviation.</description>
+      <description>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
+Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
+tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for</description>
     </item>
     
     <item>
-      <title>Session 6: Homework 3</title>
+      <title>The genius of Steven Spilberg</title>
       <link>/projects/project4/</link>
       <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project4/</guid>
-      <description>Youth Risk Behavior SurveillanceWe want to explore some statistics to analyze health patterns from the CDC.Every two years, the Centers for Disease Control and Prevention conduct the Youth Risk Behavior Surveillance System (YRBSS) survey, where it takes data from high schoolers (9th through 12th grade), to analyze health patterns.
-data(yrbss)glimpse(yrbss)## Rows: 13,583## Columns: 13## $ age &amp;lt;int&amp;gt; 14, 14, 15, 15, 15, 15, 15, 14, 15, 15, 15.</description>
+      <description>A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
+Our Null Hypothesis: The true difference in means is equal to 0.
+Alternative hypothesis: The true difference in means is not equal to 0.
+To test this hypothesis, we will use both the t.test command and the infer package to simulate from a null distribution, where you assume zero difference between the two.</description>
     </item>
     
     <item>
-      <title>index</title>
+      <title>2016 California Contributors plots</title>
+      <link>/projects/project6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project6/</guid>
+      <description>In this project, we learned how to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
+CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))zip_code &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.csv&amp;quot;))#Assigning a numerical value to the zip code column of the databasezip_code &amp;lt;- zip_code %&amp;gt;% mutate(zip = as.numeric(zip))#Merging the two data framesCA_contributors_2016 &amp;lt;- CA_contributors_2016 %&amp;gt;% inner_join(zip_code, by = &amp;quot;zip&amp;quot;)#Cleaning the data frames in order to only have the variables we want to analyzeCA_contributors_2016_adapted &amp;lt;- CA_contributors_2016 %&amp;gt;%group_by(cand_nm,primary_city) %&amp;gt;% summarise(total_amt = sum(contb_receipt_amt)) %&amp;gt;% select(candidate = cand_nm, city = primary_city, money_raised = total_amt)# Plotting Hillary Clinton&amp;#39;s top 10 contribution citiesclinton &amp;lt;- CA_contributors_2016_adapted %&amp;gt;%filter(candidate == &amp;quot;Clinton, Hillary Rodham&amp;quot;) %&amp;gt;%top_n(10, wt = money_raised) %&amp;gt;% ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + geom_col(fill = &amp;quot;blue&amp;quot;) + facet_grid(.</description>
+    </item>
+    
+    <item>
+      <title>My Biography</title>
+      <link>/projects/biography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/biography/</guid>
+      <description>Until nowMy name is Jules, I am 21 years old from Belgium and here is my biography.
+From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the simple things in life, tried a few sports such as Basketball, fencing on a competing level, or even rowing - at least, I tried, and fell in the water more times than I actually rowed. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen.</description>
+    </item>
+    
+    <item>
+      <title>My Future Watch List</title>
+      <link>/projects/project1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project1/</guid>
+      <description>Nowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.
+So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found.
+In order to construct such list, I am going to explore the data movies used during our first assignment in Data Analytics in Finance.</description>
+    </item>
+    
+    <item>
+      <title>My Resume</title>
       <link>/projects/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -49,44 +82,25 @@ data(yrbss)glimpse(yrbss)## Rows: 13,583## Columns: 13## $ age &amp;lt;int&a
     </item>
     
     <item>
-      <title>Pre-programme Assignment 1</title>
-      <link>/projects/biography/</link>
+      <title>My trip in Australia</title>
+      <link>/projects/australia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/biography/</guid>
-      <description>BiographyUntil nowMy name is Jules, I am 21 years old from Belgium and here is my biography.
-From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the simple things in life, tried a few sports such as Basketball, fencing on a competing level, or even rowing - at least, I tried, and fell in the water more times than I actually rowed. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen.</description>
+      <guid>/projects/australia/</guid>
+      <description>During the third year of my Bachelor at Maastricht University, I had the opportunity to study abroad for a semester in Australia.After long reflections, I decided to follow my courses at the University of New South Wales in Sydney.
+My travel starts on the 13th July with my first long haul trip. Directly after my arrival, at night, I will go to Coogee Beach.
+knitr::include_graphics(here::here(&amp;quot;static/img/images/Australia&amp;quot;, &amp;quot;arrival.jpg&amp;quot;))This, is Coogee Beach, the beach ten minutes walk away from my apartment.</description>
     </item>
     
     <item>
-      <title>Project 1</title>
-      <link>/projects/project1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project1/</guid>
-      <description>Watching ListNowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.
-So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found.
-In order to construct such list, I am going to explore the data movies used during our first assignment in Data Analytics in Finance.</description>
-    </item>
-    
-    <item>
-      <title>project5</title>
+      <title>Returns of financial stocks</title>
       <link>/projects/project5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/project5/</guid>
-      <description>Returns of financial stocksAs usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.
+      <description>This project explore the returns of some stocks, we will also have the opportunity to construct our own portfolio and plot it.
+As usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.
 #Loading the data and getting its Summarynyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;))skim(nyse)(#tab:load_nyse_data)Data summaryNamenyseNumber of rows508Number of columns6_______________________Column type frequency:character6________________________Group variablesNoneVariable type: character</description>
-    </item>
-    
-    <item>
-      <title>project6</title>
-      <link>/projects/project6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project6/</guid>
-      <description>Returns of financiaChallenge 2: 2016 California Contributors plotsAs discussed in class, I would like you to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
-CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;CA_contributors_2016.csv&amp;quot;))zip_code &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,&amp;quot;zip_code_database.csv&amp;quot;))#Assigning a numerical value to the zip code column of the databasezip_code &amp;lt;- zip_code %&amp;gt;% mutate(zip = as.numeric(zip))#Merging the two data framesCA_contributors_2016 &amp;lt;- CA_contributors_2016 %&amp;gt;% inner_join(zip_code, by = &amp;quot;zip&amp;quot;)#Cleaning the data frames in order to only have the variables we want to analyzeCA_contributors_2016_adapted &amp;lt;- CA_contributors_2016 %&amp;gt;%group_by(cand_nm,primary_city) %&amp;gt;% summarise(total_amt = sum(contb_receipt_amt)) %&amp;gt;% select(candidate = cand_nm, city = primary_city, money_raised = total_amt)# Plotting Hillary Clinton&amp;#39;s top 10 contribution citiesclinton &amp;lt;- CA_contributors_2016_adapted %&amp;gt;%filter(candidate == &amp;quot;Clinton, Hillary Rodham&amp;quot;) %&amp;gt;%top_n(10, wt = money_raised) %&amp;gt;% ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + geom_col(fill = &amp;quot;blue&amp;quot;) + facet_grid(.</description>
     </item>
     
   </channel>

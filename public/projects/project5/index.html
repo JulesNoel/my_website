@@ -8,7 +8,7 @@
 	<meta name="description" content="A preview about me and my R works">
 	<meta name="author" content="Jules Noël">
 	<meta name="generator" content="Hugo 0.76.4" />
-	<title>project5 &middot; Portfolio website of Jules Noël</title>
+	<title>Returns of financial stocks &middot; Portfolio website of Jules Noël</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -52,7 +52,7 @@
             
                 <li><a href="/">Home</a></li>
             
-                <li><a href="/projects">Projects</a></li>
+                <li><a href="/projects/australia">My trip in Australia</a></li>
             
                 <li><a href="/projects/CV">My CV</a></li>
             
@@ -75,14 +75,13 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>project5</h1>
+                                <h1>Returns of financial stocks</h1>
                             </header>
                             
                             
 
 
-<div id="returns-of-financial-stocks" class="section level1">
-<h1>Returns of financial stocks</h1>
+<p>This project explore the returns of some stocks, we will also have the opportunity to construct our own portfolio and plot it.</p>
 <p>As usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.</p>
 <pre class="r"><code>#Loading the data and getting its Summary
 nyse &lt;- read_csv(here::here(&quot;data&quot;,&quot;nyse.csv&quot;))
@@ -287,7 +286,6 @@ ggplot(analysis, aes(x=sd_return*100, y=mean_return*100,label= symbol))+geom_poi
   labs(title=&quot;Relation between the Mean Return and Standard Deviation&quot;, x=&quot;Standard Deviation (in %)&quot;, y=&quot;Mean Return (in %)&quot;)</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/risk_return_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>From the plot we can see that CS is the worst performing stock within this group and it is the second most risky, which means that it has the lowest sharpe ratio (Return/Volatility), this way, it would have been the worst choice. On the other hand, you can also see that BlackRock (BLK) is the one with the greatest mean return while having a medium volatility compared to its peers. Lastly, comparing Morgan Stanley (MS) with SPY, it’s clear to see that it would not have been worth to invest in it as the historical mean returns of both assets were similar.</p>
-</div>
 
                         </div>
                     </section>

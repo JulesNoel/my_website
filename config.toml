@@ -48,8 +48,8 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "Projects"
-      url = "content/projects/australia"
+      name = "My trip in Australia"
+      url = "projects/australia"
 
     [[params.navigation.links]]
       name = "My CV"
@@ -132,7 +132,9 @@ disqusShortname = ""
       subtitle = ""
       image = "projects/california.jpg"
       url = "projects/project6"
-     You can make more showcases by copy and pasting the code above
+     
+     
+     #You can make more showcases by copy and pasting the code above
 
   [params.blog]
     # All blogs defined in their own files. You can find example blogs

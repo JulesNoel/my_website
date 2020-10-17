@@ -1,5 +1,5 @@
 ---
-title: "Session 2: Homework 1"
+title: "Alcohol Consumption"
 author: "Group 26"
 date: "`r Sys.Date()`"
 output:
@@ -48,8 +48,6 @@ library(devtools)
 library(patchwork)
 library(tidytext)
 ```
-
-
 
 # Where Do People Drink The Most Beer, Wine And Spirits?
 

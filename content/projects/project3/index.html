@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Homework 2"
+title: "Climate Change Anomalies"
 author: "Group 26"
 date: "2020-10-17"
 output:
@@ -16,8 +16,7 @@ output:
 <script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
-<div id="climate-change-and-temperature-anomalies" class="section level1">
-<h1>Climate change and temperature anomalies</h1>
+<p>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.</p>
 <p>Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.
 Let’s start by selecting the months from January to December and drop the “periods” variables.</p>
 <pre class="r"><code>tidyweather&lt;- weather %&gt;% 
@@ -166,5 +165,4 @@ percentile_ci %&gt;% tbl_df %&gt;% rmarkdown::paged_table()</code></pre>
 </div>
 <p>The mean delta over the last 10 years is 0.966 - a significant change based on NASA’s findings. Both confidence interval methods give almost comparable results.
 Looking at the bootstrap method, the 95% confidence interval is between 0.917 and 1.02. This means that when looking at weather anomalies, the vast majority will over around this “one-degree” change, meaning the climate is deregulated and this will have devastating consequences.</p>
-</div>
 </div>

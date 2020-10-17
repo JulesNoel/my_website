@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Homework 2"
+title: "Climate Change Anomalies"
 author: "Group 26"
 date: "`r Sys.Date()`"
 output:
@@ -44,10 +44,7 @@ library(vroom)
 library(infer)
 ```
 
-
-
-# Climate change and temperature anomalies 
-
+The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
 
 ```{r weather_data, cache=TRUE, include=FALSE}
 

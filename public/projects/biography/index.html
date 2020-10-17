@@ -8,7 +8,7 @@
 	<meta name="description" content="A preview about me and my R works">
 	<meta name="author" content="Jules Noël">
 	<meta name="generator" content="Hugo 0.76.4" />
-	<title>Pre-programme Assignment 1 &middot; Portfolio website of Jules Noël</title>
+	<title>My Biography &middot; Portfolio website of Jules Noël</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -52,7 +52,7 @@
             
                 <li><a href="/">Home</a></li>
             
-                <li><a href="/projects">Projects</a></li>
+                <li><a href="/projects/australia">My trip in Australia</a></li>
             
                 <li><a href="/projects/CV">My CV</a></li>
             
@@ -75,199 +75,30 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Pre-programme Assignment 1</h1>
+                                <h1>My Biography</h1>
                             </header>
                             
                             
 
 
-<div id="biography" class="section level1">
-<h1>Biography</h1>
 <div id="until-now" class="section level2">
 <h2>Until now</h2>
 <p>My name is Jules, I am 21 years old from Belgium and here is my biography.</p>
 <p>From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the simple things in life, tried a few sports such as Basketball, fencing on a competing level, or even rowing - <em>at least, I tried, and fell in the water more times than I actually rowed</em>. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen. This last experience is <strong>definitely</strong> the one that shaped me the most.</p>
 <p>Then I embarked in a Bachelor of Economics and Business Economics at Maastricht University. This was a great time and I ultimately had the opportunity to exchange at the University of New South Wales in Sydney. <strong>It was an amazing time</strong>. If you one day visit, or return if already did, I’d like to recommend you a few things:</p>
 <p><strong>1.</strong> Get the best burgers at <em>Burger Barrel</em> in Coogee.</p>
-<p><strong>2.</strong> Visit 7-miles Beach - Great place to learn surfing. Here is a peak view:
-<img src="https://i.pinimg.com/564x/02/17/c0/0217c0291aa33daad078229a57378762.jpg" alt="Seven Miles Beach - A beauty" /></p>
+<p><strong>2.</strong> Visit 7-miles Beach - Great place to learn surfing. Here is a peak view:</p>
+<div class="figure">
+<img src="https://i.pinimg.com/564x/02/17/c0/0217c0291aa33daad078229a57378762.jpg" alt="" />
+<p class="caption">Seven Miles Beach - A beauty</p>
+</div>
 <p><strong>3.</strong> Embark on a road trip. I did three, my favorite was from Sydney to Brisbane. I went with my family and got to sponsor a rescued Koala. If you wonder why they need sponsorship, here is the link to their website: <a href="https://www.koalahospital.org.au/">Koala Hospital Website</a></p>
 <p>Then I went on an internship at <em>Nike</em> in the Finance department, where I practiced my financial planning skills and learn from managers on how to lead a team.</p>
 <p><strong><em>Now here I am</em></strong>, starting my Masters in Financial Analysis and learning to write in R.</p>
 </div>
 <div id="and-after" class="section level2">
 <h2>And after?</h2>
-<p>I am applying to different Investment Banking summer internships and plan to make the most of this year in London. For the rest, I am sure I will have more opportunity to elaborate in the near future…</p>
-<hr />
-</div>
-</div>
-<div id="analysis-of-the-evolution-of-life-expectancy-since-1952" class="section level1">
-<h1>Analysis of the evolution of life expectancy since 1952</h1>
-<p>Before our analysis, let’s see the composition of our dataframe and have a look at the first 20 rows.</p>
-<pre class="r"><code>glimpse(gapminder)</code></pre>
-<pre><code>## Rows: 1,704
-## Columns: 6
-## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, Afgha...
-## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asi...
-## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 199...
-## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 4...
-## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372,...
-## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.113...</code></pre>
-<pre class="r"><code>head(gapminder, 20) # look at the first 20 rows of the dataframe</code></pre>
-<pre><code>## # A tibble: 20 x 6
-##    country     continent  year lifeExp      pop gdpPercap
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-##  1 Afghanistan Asia       1952    28.8  8425333      779.
-##  2 Afghanistan Asia       1957    30.3  9240934      821.
-##  3 Afghanistan Asia       1962    32.0 10267083      853.
-##  4 Afghanistan Asia       1967    34.0 11537966      836.
-##  5 Afghanistan Asia       1972    36.1 13079460      740.
-##  6 Afghanistan Asia       1977    38.4 14880372      786.
-##  7 Afghanistan Asia       1982    39.9 12881816      978.
-##  8 Afghanistan Asia       1987    40.8 13867957      852.
-##  9 Afghanistan Asia       1992    41.7 16317921      649.
-## 10 Afghanistan Asia       1997    41.8 22227415      635.
-## 11 Afghanistan Asia       2002    42.1 25268405      727.
-## 12 Afghanistan Asia       2007    43.8 31889923      975.
-## 13 Albania     Europe     1952    55.2  1282697     1601.
-## 14 Albania     Europe     1957    59.3  1476505     1942.
-## 15 Albania     Europe     1962    64.8  1728137     2313.
-## 16 Albania     Europe     1967    66.2  1984060     2760.
-## 17 Albania     Europe     1972    67.7  2263554     3313.
-## 18 Albania     Europe     1977    68.9  2509048     3533.
-## 19 Albania     Europe     1982    70.4  2780097     3631.
-## 20 Albania     Europe     1987    72    3075321     3739.</code></pre>
-<p>As said earlier, I come from Belgium and have lived mostly there until now, I am thus curious to see how old I might expect to live!
-Let’s create two data, one filtered on Belgium, and the other on Europe (why not compare to my neighbors after all?)</p>
-<pre class="r"><code>country_data &lt;- gapminder %&gt;% 
-            filter(country == &quot;Belgium&quot;)
-
-continent_data &lt;- gapminder %&gt;% 
-            filter(continent == &quot;Europe&quot;)</code></pre>
-<p>First, I constructed a plot for the Life expectancy in Belgium over time and its respective trend:</p>
-<pre class="r"><code>plot1 &lt;- ggplot(data = country_data, mapping = aes(x = year, y = lifeExp))+
-geom_point() +
-geom_smooth(se = FALSE)+
-NULL 
-
-plot1</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/lifeExp_one_country-1.png" width="672" /></p>
-<p>We are missing some information right? I’ll just add a title, some axis names and voilà!</p>
-<pre class="r"><code>plot1&lt;- ggplot(country_data, mapping = aes(x = year, y = lifeExp))+
-   geom_point() +
-   geom_smooth(se = FALSE) +
-   labs(title = &quot;Life expectancy in Belgium over time&quot;,
-       x = &quot;Year&quot;,
-       y = &quot;Life Expectancy&quot;) +
-   NULL
-
-
- print(plot1)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/lifeExp_one_country_with_label-1.png" width="672" /></p>
-<p>Better right?</p>
-<p>Second, as promised, we will have a look at the complete European continent. This time, we’ll add some titles ahead!</p>
-<pre class="r"><code> plot_continent &lt;- gapminder %&gt;%
-  filter(continent == &quot;Europe&quot;)
-ggplot(data = plot_continent , mapping = aes(x = year , y = lifeExp , colour=country ))+
-   geom_point() + 
-   geom_smooth(se = FALSE) +
-  labs(title = &quot;Life expectancy in Europe over time&quot;,
-       x = &quot;Year&quot;,
-       y = &quot;Life Expectancy&quot;)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/lifeExp_one_continent-1.png" width="672" /></p>
-<pre class="r"><code>   NULL</code></pre>
-<pre><code>## NULL</code></pre>
-<p>We will then turn to comparing the trends in Europe to the trends in other continents with grouped data:</p>
-<pre class="r"><code> ggplot(data = gapminder , mapping = aes(x = year , y = lifeExp , colour= country ))+
- geom_line() + 
-   geom_smooth(se = FALSE) +
-   facet_wrap(~continent) +
-   theme(legend.position=&quot;none&quot;) + #remove all legends
-   NULL</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/lifeExp_facet_by_continent-1.png" width="672" /></p>
-<p>In my analysis, we can notice that the life expectancy is evolving differently over time for each continent. I will now focus on each continent compared to the others and formulate some hypothesis to explain these differences.</p>
-<div id="africa" class="section level2">
-<h2>Africa</h2>
-<p>The life expectancy was on average the lowest of all continent. We can see an overall increase in the life expectancy since 1952 for the whole continent but some countries have encountered declines in their life expectancy during the second half of the century. This surprising phenomenon could be explain by the health crisis such as HIV and AIDS. Indeed, these diseases have know resurgence in the last decades in some parts of the continent. Additionally, Africa is unfortunately prone to some of the longest international conflicts, causing economic, health, and political crisis. All of these have a negative impact on the quality of life and health services available to the population.</p>
-</div>
-<div id="americas" class="section level2">
-<h2>Americas</h2>
-<p>The Americas, like Asia, have a widely spread life expectancy level in 1952. Certainly motivated by the striking variations in quality of life between north and south americas. However we can see that the industralization has generally improved the life expectancy.</p>
-</div>
-<div id="asisa" class="section level2">
-<h2>Asisa</h2>
-<p>Asia is the most inconsistent continent in terms of life expectancy, with a difference of 45 years in 1952 between the highest life expectancy and lowest one. In addition to various starting points, the evolution is widely different among some countries, ranging from steep increase to almost stagnation with intermittent decrease. The scale of the territory and population of Asia can explain these discrepancies. Indeed, Asia presents opposite life quality between rural and urban region or between coastal or land-locked ones. The development status of the Asian countries and their political regimes also widely differ.</p>
-</div>
-<div id="europe" class="section level2">
-<h2>Europe</h2>
-<p>Europe starts with a higher life expectancy, surely motivated by its most-developed continent at that time. Then, the life expectancy has followed the same increasing pattern than the rest of the world but on a lesser scale. Indeed, there is less room for rapid improvement. However, the advancements in health care and quality of life still contribute to an older life expectancy. The consistent evolution demonstrates a certain unity, favored certainly by its size and its “overall common political management”.</p>
-</div>
-</div>
-<div id="brexit-voting" class="section level1">
-<h1>Brexit voting</h1>
-<p>Because politic are important in business, I will have a quick look at the results of the 2016 Brexit vote in the UK. First I read the data to have a quick glimpse at it.</p>
-<pre class="r"><code>brexit_results &lt;- read_csv(here::here(&quot;Data&quot;,&quot;brexit_results.csv&quot;))
-
-
-glimpse(brexit_results)</code></pre>
-<pre><code>## Rows: 632
-## Columns: 11
-## $ Seat        &lt;chr&gt; &quot;Aldershot&quot;, &quot;Aldridge-Brownhills&quot;, &quot;Altrincham and Sal...
-## $ con_2015    &lt;dbl&gt; 50.592, 52.050, 52.994, 43.979, 60.788, 22.418, 52.454,...
-## $ lab_2015    &lt;dbl&gt; 18.333, 22.369, 26.686, 34.781, 11.197, 41.022, 18.441,...
-## $ ld_2015     &lt;dbl&gt; 8.824, 3.367, 8.383, 2.975, 7.192, 14.828, 5.984, 2.423...
-## $ ukip_2015   &lt;dbl&gt; 17.867, 19.624, 8.011, 15.887, 14.438, 21.409, 18.821, ...
-## $ leave_share &lt;dbl&gt; 57.89777, 67.79635, 38.58780, 65.29912, 49.70111, 70.47...
-## $ born_in_uk  &lt;dbl&gt; 83.10464, 96.12207, 90.48566, 97.30437, 93.33793, 96.96...
-## $ male        &lt;dbl&gt; 49.89896, 48.92951, 48.90621, 49.21657, 48.00189, 49.17...
-## $ unemployed  &lt;dbl&gt; 3.637000, 4.553607, 3.039963, 4.261173, 2.468100, 4.742...
-## $ degree      &lt;dbl&gt; 13.870661, 9.974114, 28.600135, 9.336294, 18.775591, 6....
-## $ age_18to24  &lt;dbl&gt; 9.406093, 7.325850, 6.437453, 7.747801, 5.734730, 8.209...</code></pre>
-<p>To get a sense of the spread of the data, I will plot a histogram and a density plot of the leave share in all constituencies.</p>
-<pre class="r"><code>ggplot(brexit_results, aes(x = leave_share)) +
-  geom_histogram(binwidth = 2.5)+
-labs(title = &quot;Distribution of Leave Share&quot;,subtitle = &quot;Brexit Data 2016 by constituents&quot;,
-       x = &quot;Leave Share in %&quot;,
-       y = &quot;Count&quot;)</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/brexit_histogram-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(brexit_results, aes(x = leave_share)) +
-  geom_density()+
-labs(title = &quot;Density of Leave Share&quot;,subtitle = &quot;Brexit Data 2016 by constituents&quot;,
-       x = &quot;Leave Share in %&quot;,
-       y = &quot;Density&quot;)</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/brexit_histogram-2.png" width="672" /></p>
-<p>One common explanation for the Brexit outcome was fear of immigration and opposition to the EU’s more open border policy. To verify this hypothesis, we can check the correlation between the two variables as below.</p>
-<pre class="r"><code>brexit_results %&gt;% 
-  select(leave_share, born_in_uk) %&gt;% 
-  cor()</code></pre>
-<pre><code>##             leave_share born_in_uk
-## leave_share   1.0000000  0.4934295
-## born_in_uk    0.4934295  1.0000000</code></pre>
-<p>The two variables have a correlation of almost .5, suggesting a positive relationship. To better understand this relationship, we can use a scatterplot including both variables and have a line of best fit.</p>
-<pre class="r"><code>ggplot(brexit_results, aes(x = born_in_uk, y = leave_share)) +
-  geom_point(alpha=0.3) +
-  geom_smooth(method = &quot;lm&quot;) +
-  theme_bw() +
-labs(title = &quot;Relation between the preference for a Brexit and being born in the UK&quot;,subtitle = &quot;Brexit Data 2016 by constituents&quot;,
-       x = &quot;% Born in the UK&quot;,
-       y = &quot;Share voting to leave EU&quot;)</code></pre>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/projects/biography/index_files/figure-html/brexit_immigration_plot-1.png" width="672" /></p>
-<pre class="r"><code>  NULL</code></pre>
-<pre><code>## NULL</code></pre>
-<p>The data outlines a positive relationship without surprise. The explanation is that in the constituents with a larger proportion of UK-born people have a higher leave share. This is a realistic hypothesis, but seeing the complexity of the data, we could check its statistical significance and reject or not our hypothesis.</p>
-<div id="details" class="section level2">
-<h2>Details</h2>
-<ul>
-<li>Who did you collaborate with: Google</li>
-<li>Approximately how much time did you spend on this problem set: Three to four hours.</li>
-<li>What, if anything, gave you the most trouble: Simple syntax mistake hard to find, understand the data <em>(Brexit)</em></li>
-</ul>
-</div>
+<p>I am applying to different Investment Banking summer internships and plan to make the most of this year in London.</p>
 </div>
 
                         </div>

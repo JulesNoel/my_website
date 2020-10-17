@@ -1,5 +1,5 @@
 ---
-title: "Project 1"
+title: "My Future Watch List"
 author: "Jules"
 date: "15/10/2020"
 output: html_document
@@ -44,8 +44,6 @@ library(devtools)
 library(patchwork)
 library(tidytext)
 ```
-
-# Watching List
 
 Nowadays I don't really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position. 
 
@@ -92,7 +90,7 @@ ggplot(movies_new,
   labs(
     x = "Year", 
     y = " Count", 
-    title = "Most are porduce evenly among the years"
+    title = "Most are produce evenly among the years"
   )
 ```
 We see that the movies are well spread over the years, expect for two years.
@@ -146,7 +144,7 @@ movies_final <- movies_new %>%
 ```
 
 However, if I keep my list as such, I will simply have too much movies on it. I need to find a way to reduce it. 
-I think that the number of facebook likes might be of interest, I'll only select movies with a rating higher than 7.5.
+I think that the number of facebook likes might be of interest, and I'll also only select movies with a rating higher than 7.5.
 ```{r}
 movies_final <- movies_final %>%
   select(title, cast_facebook_likes,  year, rating, duration, genre) %>% 

@@ -1,5 +1,5 @@
 ---
-title: "Session 6: Homework 3"
+title: "The genius of Steven Spilberg"
 author: "Group 26"
 date: "`r Sys.Date()`"
 output:
@@ -46,7 +46,6 @@ library(openintro)
 library(scales)
 ```
 
-# IMDB ratings: Differences between directors
 
 ```{r directors, echo=FALSE, include = FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images", "directors.png"), error = FALSE)

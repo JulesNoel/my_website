@@ -8,7 +8,7 @@
 	<meta name="description" content="A preview about me and my R works">
 	<meta name="author" content="Jules Noël">
 	<meta name="generator" content="Hugo 0.76.4" />
-	<title>project6 &middot; Portfolio website of Jules Noël</title>
+	<title>2016 California Contributors plots &middot; Portfolio website of Jules Noël</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -52,7 +52,7 @@
             
                 <li><a href="/">Home</a></li>
             
-                <li><a href="/projects">Projects</a></li>
+                <li><a href="/projects/australia">My trip in Australia</a></li>
             
                 <li><a href="/projects/CV">My CV</a></li>
             
@@ -75,18 +75,13 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>project6</h1>
+                                <h1>2016 California Contributors plots</h1>
                             </header>
                             
                             
 
 
-<div id="returns-of-financia" class="section level1">
-<h1>Returns of financia</h1>
-</div>
-<div id="challenge-2-2016-california-contributors-plots" class="section level1">
-<h1>Challenge 2: 2016 California Contributors plots</h1>
-<p>As discussed in class, I would like you to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
+<p>In this project, we learned how to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
 <p><img src="C:/Users/NOEL Jules/Music/Data Analysis/Individual Web Portfolio/my_website/images/challenge2.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
 zip_code &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
@@ -176,7 +171,6 @@ ggsave(&quot;top10plot.png&quot;,plot=plot_top_10,width = 15,height = 10, path =
 # show the plot
 knitr::include_graphics(here::here(&quot;images&quot;, &quot;top10plot.png&quot;))</code></pre>
 <p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/top10plot.png" width="2250" style="display: block; margin: auto;" /></p>
-</div>
 
                         </div>
                     </section>

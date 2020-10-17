@@ -1,5 +1,5 @@
 ---
-title: 'Pre-programme Assignment 1'
+title: 'My Biography'
 author: "Jules Noel"
 date: "08/09/2020"
 output:
@@ -18,9 +18,6 @@ library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(gapminder)  # gapminder dataset
 library(here)
 ```
-
-# Biography
-
 ## Until now
 
 My name is Jules, I am 21 years old from Belgium and here is my biography.
@@ -32,6 +29,7 @@ Then I embarked in a Bachelor of Economics and Business Economics at Maastricht 
   **1.** Get the best burgers at *Burger Barrel* in Coogee.
   
   **2.** Visit 7-miles Beach - Great place to learn surfing. Here is a peak view:
+  
 ![Seven Miles Beach - A beauty](https://i.pinimg.com/564x/02/17/c0/0217c0291aa33daad078229a57378762.jpg)
   
   **3.** Embark on a road trip. I did three, my favorite was from Sydney to Brisbane. I went with my family and got to sponsor a rescued Koala. If you wonder why they need sponsorship, here is the link to their website: [Koala Hospital Website](https://www.koalahospital.org.au/)
@@ -42,159 +40,4 @@ Then I went on an internship at *Nike* in the Finance department, where I practi
 
 ## And after?
 
-I am applying to different Investment Banking summer internships and plan to make the most of this year in London. For the rest, I am sure I will have more opportunity to elaborate in the near future...
-
---- 
-
-# Analysis of the evolution of life expectancy since 1952
-
-Before our analysis, let's see the composition of our dataframe and have a look at the first 20 rows.
-
-```{r}
-glimpse(gapminder)
-
-head(gapminder, 20) # look at the first 20 rows of the dataframe
-
-```
-
-As said earlier, I come from Belgium and have lived mostly there until now, I am thus curious to see how old I might expect to live! 
-Let's create two data, one filtered on Belgium, and the other on Europe (why not compare to my neighbors after all?)
-
-```{r}
-country_data <- gapminder %>% 
-            filter(country == "Belgium")
-
-continent_data <- gapminder %>% 
-            filter(continent == "Europe")
-```
-
-First, I constructed a plot for the Life expectancy in Belgium over time and its respective trend:
-
-```{r, lifeExp_one_country}
-plot1 <- ggplot(data = country_data, mapping = aes(x = year, y = lifeExp))+
-geom_point() +
-geom_smooth(se = FALSE)+
-NULL 
-
-plot1
-```
-
-We are missing some information right? I'll just add a title, some axis names and voilà!
-
-```{r, lifeExp_one_country_with_label}
-plot1<- ggplot(country_data, mapping = aes(x = year, y = lifeExp))+
-   geom_point() +
-   geom_smooth(se = FALSE) +
-   labs(title = "Life expectancy in Belgium over time",
-       x = "Year",
-       y = "Life Expectancy") +
-   NULL
-
-
- print(plot1)
-```
-
-Better right? 
-
-Second, as promised, we will have a look at the complete European continent. This time, we'll add some titles ahead! 
-
-```{r lifeExp_one_continent}
- plot_continent <- gapminder %>%
-  filter(continent == "Europe")
-ggplot(data = plot_continent , mapping = aes(x = year , y = lifeExp , colour=country ))+
-   geom_point() + 
-   geom_smooth(se = FALSE) +
-  labs(title = "Life expectancy in Europe over time",
-       x = "Year",
-       y = "Life Expectancy")
-   NULL
-```
-
-We will then turn to comparing the trends in Europe to the trends in other continents with grouped data:
-
-```{r lifeExp_facet_by_continent}
- ggplot(data = gapminder , mapping = aes(x = year , y = lifeExp , colour= country ))+
- geom_line() + 
-   geom_smooth(se = FALSE) +
-   facet_wrap(~continent) +
-   theme(legend.position="none") + #remove all legends
-   NULL
-```
-
- In my analysis, we can notice that the life expectancy is evolving differently over time for each continent. I will now focus on each continent compared to the others and formulate some hypothesis to explain these differences.
-
-
-## Africa 
-
-The life expectancy was on average the lowest of all continent. We can see an overall increase in the life expectancy since 1952 for the whole continent but some countries have encountered declines in their life expectancy during the second half of the century. This surprising phenomenon could be explain by the health crisis such as HIV and AIDS. Indeed, these diseases have know resurgence in the last decades in some parts of the continent. Additionally, Africa is unfortunately prone to some of the longest international conflicts, causing economic, health, and political crisis. All of these have a negative impact on the quality of life and health services available to the population.
-
-## Americas
-
-The Americas, like Asia, have a widely spread life expectancy level in 1952. Certainly motivated by the striking variations in quality of life between north and south americas. However we can see that the industralization has generally improved the life expectancy.
-
-## Asisa
-
-Asia is the most inconsistent continent in terms of life expectancy, with a difference of 45 years in 1952 between the highest life expectancy and lowest one. In addition to various starting points, the evolution is widely different among some countries, ranging from steep increase to almost stagnation with intermittent decrease. The scale of the territory and population of Asia can explain these discrepancies. Indeed, Asia presents opposite life quality between rural and urban region or between coastal or land-locked ones. The development status of the Asian countries and their political regimes also widely differ.
-
-## Europe
-
-Europe starts with a higher life expectancy, surely motivated by its most-developed continent at that time. Then, the life expectancy has followed the same increasing pattern than the rest of the world but on a lesser scale. Indeed, there is less room for rapid improvement. However, the advancements in health care and quality of life still contribute to an older life expectancy. The consistent evolution demonstrates a certain unity, favored certainly by its size and its "overall common political management". 
-
-# Brexit voting
-
-Because politic are important in business, I will have a quick look at the results of the 2016 Brexit vote in the UK. First I read the data to have a quick glimpse at it.
-
-```{r load_brexit_data, warning=FALSE, message=FALSE}
-brexit_results <- read_csv(here::here("Data","brexit_results.csv"))
-
-
-glimpse(brexit_results)
-```
-
-To get a sense of the spread of the data, I will plot a histogram and a density plot of the leave share in all constituencies.
-
-```{r brexit_histogram, warning=FALSE, message=FALSE}
-ggplot(brexit_results, aes(x = leave_share)) +
-  geom_histogram(binwidth = 2.5)+
-labs(title = "Distribution of Leave Share",subtitle = "Brexit Data 2016 by constituents",
-       x = "Leave Share in %",
-       y = "Count")
-ggplot(brexit_results, aes(x = leave_share)) +
-  geom_density()+
-labs(title = "Density of Leave Share",subtitle = "Brexit Data 2016 by constituents",
-       x = "Leave Share in %",
-       y = "Density")
-
-
-```
-
-One common explanation for the Brexit outcome was fear of immigration and opposition to the EU's more open border policy. To verify this hypothesis, we can check the correlation between the two variables as below.
-
-```{r brexit_immigration_correlation}
-brexit_results %>% 
-  select(leave_share, born_in_uk) %>% 
-  cor()
-```
-
-The two variables have a correlation of almost .5, suggesting a positive relationship. To better understand this relationship, we can use a scatterplot including both variables and have a line of best fit.
-
-```{r brexit_immigration_plot}
-ggplot(brexit_results, aes(x = born_in_uk, y = leave_share)) +
-  geom_point(alpha=0.3) +
-  geom_smooth(method = "lm") +
-  theme_bw() +
-labs(title = "Relation between the preference for a Brexit and being born in the UK",subtitle = "Brexit Data 2016 by constituents",
-       x = "% Born in the UK",
-       y = "Share voting to leave EU")
-  NULL
-```
-
-
-The data outlines a positive relationship without surprise. The explanation is that in the constituents with a larger proportion of UK-born people have a higher leave share. This is a realistic hypothesis, but seeing the complexity of the data, we could check its statistical significance and reject or not our hypothesis.
-
-
-## Details
-
-- Who did you collaborate with: Google
-- Approximately how much time did you spend on this problem set: Three to four hours.
-- What, if anything, gave you the most trouble: Simple syntax mistake hard to find, understand the data *(Brexit)*
+I am applying to different Investment Banking summer internships and plan to make the most of this year in London.
