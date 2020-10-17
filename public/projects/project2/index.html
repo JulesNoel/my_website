@@ -1,0 +1,1879 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A preview about me and my R works">
+	<meta name="author" content="Jules Noël">
+	<meta name="generator" content="Hugo 0.76.4" />
+	<title>Session 2: Homework 1 &middot; Portfolio website of Jules Noël</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Jules Noël</strong> <span>A data analytics work</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/projects">Projects</a></li>
+            
+                <li><a href="/blogs/ipsum">My CV</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/projects" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Session 2: Homework 1</h1>
+                            </header>
+                            
+                            
+
+
+<div id="where-do-people-drink-the-most-beer-wine-and-spirits" class="section level1">
+<h1>Where Do People Drink The Most Beer, Wine And Spirits?</h1>
+<pre class="r"><code># Loading the data
+library(fivethirtyeight)
+data(drinks)</code></pre>
+<p>We’ll check first for any missing variable. Fortunately, our dataset is complete and we have no missing values.</p>
+<pre class="r"><code># Using glimpse and skim to understand the dataframe
+glimpse(drinks)</code></pre>
+<pre><code>## Rows: 193
+## Columns: 5
+## $ country                      &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Albania&quot;, &quot;Algeria&quot;, &quot;...
+## $ beer_servings                &lt;int&gt; 0, 89, 25, 245, 217, 102, 193, 21, 261...
+## $ spirit_servings              &lt;int&gt; 0, 132, 0, 138, 57, 128, 25, 179, 72, ...
+## $ wine_servings                &lt;int&gt; 0, 54, 14, 312, 45, 45, 221, 11, 212, ...
+## $ total_litres_of_pure_alcohol &lt;dbl&gt; 0.0, 4.9, 0.7, 12.4, 5.9, 4.9, 8.3, 3....</code></pre>
+<pre class="r"><code>skim(drinks)</code></pre>
+<table>
+<caption>(#tab:glimpse_skim_data)Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">drinks</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">193</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">4</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">country</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">28</td>
+<td align="right">0</td>
+<td align="right">193</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">beer_servings</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">106.16</td>
+<td align="right">101.14</td>
+<td align="right">0</td>
+<td align="right">20.0</td>
+<td align="right">76.0</td>
+<td align="right">188.0</td>
+<td align="right">376.0</td>
+<td align="left">▇▃▂▂▁</td>
+</tr>
+<tr class="even">
+<td align="left">spirit_servings</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">80.99</td>
+<td align="right">88.28</td>
+<td align="right">0</td>
+<td align="right">4.0</td>
+<td align="right">56.0</td>
+<td align="right">128.0</td>
+<td align="right">438.0</td>
+<td align="left">▇▃▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">wine_servings</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">49.45</td>
+<td align="right">79.70</td>
+<td align="right">0</td>
+<td align="right">1.0</td>
+<td align="right">8.0</td>
+<td align="right">59.0</td>
+<td align="right">370.0</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">total_litres_of_pure_alcohol</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4.72</td>
+<td align="right">3.77</td>
+<td align="right">0</td>
+<td align="right">1.3</td>
+<td align="right">4.2</td>
+<td align="right">7.2</td>
+<td align="right">14.4</td>
+<td align="left">▇▃▅▃▁</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s now see which 25 countries drink the most beer.</p>
+<pre class="r"><code># First we subset the 25 that drink most beer and then we plot in descending order
+countries_25beer&lt;- drinks %&gt;%
+  top_n(25,beer_servings)
+
+#constructing graph
+ggplot(data = countries_25beer, aes(y= reorder(country,beer_servings), x=beer_servings))+
+  geom_bar(stat=&#39;identity&#39;)+
+  labs(x=&quot;Consumption of Beer (in Servings)&quot;, y=&quot;Countries&quot;, title = &quot;Top 25 Countries by Beer Consumption&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/beer_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>But what about wine?</p>
+<pre class="r"><code># First we subset the 25 that drink most wine and then we plot in descending order
+countries_25wine&lt;- drinks %&gt;%
+  top_n(25,wine_servings)
+
+#constructing graph
+ggplot(data = countries_25wine, aes(y= reorder(country,wine_servings), x=wine_servings))+
+  geom_bar(stat=&#39;identity&#39;)+
+  labs(x=&quot;Consumption of Wine (in Servings)&quot;, y=&quot;Countries&quot;, title = &quot;Top 25 Countries by Wine Consumption&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/wine_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Finally, we can also see for the 25 countries drinking the most spirit.</p>
+<pre class="r"><code># First we subset the 25 that drink most spirits and then we plot in descending order
+countries_25spirit&lt;- drinks %&gt;%
+  top_n(25,spirit_servings)
+
+#constructing graph
+ggplot(data = countries_25spirit, aes(y= reorder(country,spirit_servings), x=spirit_servings))+
+  geom_bar(stat=&#39;identity&#39;)+
+  labs(x=&quot;Consumption of Spirit (in Servings)&quot;, y=&quot;Countries&quot;, title = &quot;Top 25 Countries by Spirit Consumption&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/spirit_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Looking at these graphs, we see that in countries like Namibia and Czech Republic, in which this drink is part of the day to day life and culture, the consumption is much larger than in other countries in which these drinks are seen more as recreation.</p>
+<p>In addition to that, we can also see a relation between the production of alcohol beverages and their consumption. For example, France and Portugal, two of the largest producers of wine in the world, are at the same time top consumers of wine.</p>
+</div>
+<div id="analysis-of-movies--imdb-dataset" class="section level1">
+<h1>Analysis of movies- IMDB dataset</h1>
+<p>For this second task, we will have a look at a movies dataset and perform a few analysis.</p>
+<p>First, let’s see how the data is composed through glimpse and skim.</p>
+<pre class="r"><code># Reading the data and analyzing the information
+
+movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
+glimpse(movies)</code></pre>
+<pre><code>## Rows: 2,961
+## Columns: 11
+## $ title               &lt;chr&gt; &quot;Avatar&quot;, &quot;Titanic&quot;, &quot;Jurassic World&quot;, &quot;The Ave...
+## $ genre               &lt;chr&gt; &quot;Action&quot;, &quot;Drama&quot;, &quot;Action&quot;, &quot;Action&quot;, &quot;Action&quot;...
+## $ director            &lt;chr&gt; &quot;James Cameron&quot;, &quot;James Cameron&quot;, &quot;Colin Trevor...
+## $ year                &lt;dbl&gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015,...
+## $ duration            &lt;dbl&gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93...
+## $ gross               &lt;dbl&gt; 7.61e+08, 6.59e+08, 6.52e+08, 6.23e+08, 5.33e+0...
+## $ budget              &lt;dbl&gt; 2.37e+08, 2.00e+08, 1.50e+08, 2.20e+08, 1.85e+0...
+## $ cast_facebook_likes &lt;dbl&gt; 4834, 45223, 8458, 87697, 57802, 37723, 13485, ...
+## $ votes               &lt;dbl&gt; 886204, 793059, 418214, 995415, 1676169, 534658...
+## $ reviews             &lt;dbl&gt; 3777, 2843, 1934, 2425, 5312, 3917, 1752, 1752,...
+## $ rating              &lt;dbl&gt; 7.9, 7.7, 7.0, 8.1, 9.0, 6.5, 8.7, 7.5, 8.5, 7....</code></pre>
+<pre class="r"><code># Using skim to understand the data
+skim(movies)</code></pre>
+<table>
+<caption>(#tab:load_movies1)Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">movies</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">2961</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">11</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">8</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">title</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">83</td>
+<td align="right">0</td>
+<td align="right">2907</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">genre</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">17</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">director</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">32</td>
+<td align="right">0</td>
+<td align="right">1366</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="6%" />
+<col width="9%" />
+<col width="6%" />
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">year</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.00e+03</td>
+<td align="right">9.95e+00</td>
+<td align="right">1920.0</td>
+<td align="right">2.00e+03</td>
+<td align="right">2.00e+03</td>
+<td align="right">2.01e+03</td>
+<td align="right">2.02e+03</td>
+<td align="left">▁▁▁▂▇</td>
+</tr>
+<tr class="even">
+<td align="left">duration</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.10e+02</td>
+<td align="right">2.22e+01</td>
+<td align="right">37.0</td>
+<td align="right">9.50e+01</td>
+<td align="right">1.06e+02</td>
+<td align="right">1.19e+02</td>
+<td align="right">3.30e+02</td>
+<td align="left">▃▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">gross</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.81e+07</td>
+<td align="right">7.25e+07</td>
+<td align="right">703.0</td>
+<td align="right">1.23e+07</td>
+<td align="right">3.47e+07</td>
+<td align="right">7.56e+07</td>
+<td align="right">7.61e+08</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">budget</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4.06e+07</td>
+<td align="right">4.37e+07</td>
+<td align="right">218.0</td>
+<td align="right">1.10e+07</td>
+<td align="right">2.60e+07</td>
+<td align="right">5.50e+07</td>
+<td align="right">3.00e+08</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">cast_facebook_likes</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.24e+04</td>
+<td align="right">2.05e+04</td>
+<td align="right">0.0</td>
+<td align="right">2.24e+03</td>
+<td align="right">4.60e+03</td>
+<td align="right">1.69e+04</td>
+<td align="right">6.57e+05</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">votes</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.09e+05</td>
+<td align="right">1.58e+05</td>
+<td align="right">5.0</td>
+<td align="right">1.99e+04</td>
+<td align="right">5.57e+04</td>
+<td align="right">1.33e+05</td>
+<td align="right">1.69e+06</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">reviews</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.03e+02</td>
+<td align="right">4.94e+02</td>
+<td align="right">2.0</td>
+<td align="right">1.99e+02</td>
+<td align="right">3.64e+02</td>
+<td align="right">6.31e+02</td>
+<td align="right">5.31e+03</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">rating</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6.39e+00</td>
+<td align="right">1.05e+00</td>
+<td align="right">1.6</td>
+<td align="right">5.80e+00</td>
+<td align="right">6.50e+00</td>
+<td align="right">7.10e+00</td>
+<td align="right">9.30e+00</td>
+<td align="left">▁▁▆▇▁</td>
+</tr>
+</tbody>
+</table>
+<p>We can see by looking at the unique number of title and the number of rows that there are some duplicates in the dataset. In order to present the most reliable results possible. We will use a adapted dataset called <strong>movies_new</strong> which will not contained the duplicates.</p>
+<pre class="r"><code>movies_new &lt;- movies %&gt;% #we will use the movies_new data for the rest of our analysis.
+  distinct(title, .keep_all= TRUE)</code></pre>
+<p>Our first analysis will be to explore the quantity of movies in the dataset by genre. We also want them to be ranked in descending order.</p>
+<pre class="r"><code># Grouping the data by genre and counting the number of movies of each genre are there in the dataframe
+movies_new%&gt;%
+  group_by(genre)%&gt;%
+  count(sort=TRUE)</code></pre>
+<pre><code>## # A tibble: 17 x 2
+## # Groups:   genre [17]
+##    genre           n
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 Comedy        844
+##  2 Action        719
+##  3 Drama         484
+##  4 Adventure     281
+##  5 Crime         198
+##  6 Biography     135
+##  7 Horror        128
+##  8 Animation      35
+##  9 Fantasy        26
+## 10 Documentary    25
+## 11 Mystery        15
+## 12 Sci-Fi          7
+## 13 Family          3
+## 14 Musical         2
+## 15 Romance         2
+## 16 Western         2
+## 17 Thriller        1</code></pre>
+<p>Very often when a movie is coming out, people look at the box office to know how much a certain movie has brought in revenues. We will thus create a table with a few descriptive components. In addition, we will see on average, which type of genre has the best returns. The genre are ranked in descending order based on their returns (gross revenues/budget).</p>
+<pre class="r"><code># Summarizing the information and calculating the mean return, mean budget and the mean return on budget for the movies grouped by genre
+movies_new%&gt;%
+  group_by(genre)%&gt;%
+  summarize(mean_gross=mean(gross),mean_budget=mean(budget))%&gt;%
+  mutate(return_on_budget=(mean_gross/mean_budget))%&gt;%
+  arrange(desc(return_on_budget))</code></pre>
+<pre><code>## # A tibble: 17 x 4
+##    genre       mean_gross mean_budget return_on_budget
+##    &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Musical      92084000     3189500          28.9    
+##  2 Family      149160478.   14833333.         10.1    
+##  3 Western      20821884     3465000           6.01   
+##  4 Documentary  17353973.    5887852.          2.95   
+##  5 Horror       37782310.   13804379.          2.74   
+##  6 Fantasy      41902674.   18484615.          2.27   
+##  7 Comedy       42487808.   24458506.          1.74   
+##  8 Mystery      69117136.   41500000           1.67   
+##  9 Animation    98433792.   61701429.          1.60   
+## 10 Biography    45201805.   28543696.          1.58   
+## 11 Adventure    94350236.   64692313.          1.46   
+## 12 Drama        36754959.   25832605.          1.42   
+## 13 Crime        37601525.   26527405.          1.42   
+## 14 Romance      31264848.   25107500           1.25   
+## 15 Action       86270343.   70774558.          1.22   
+## 16 Sci-Fi       29788371.   27607143.          1.08   
+## 17 Thriller         2468      300000           0.00823</code></pre>
+<p>But who is behind these blockbusters? Let’s rank the directors by their total gross revenues. As usual, we will include a few other descriptive variables to capture the whole picture.</p>
+<pre class="r"><code># Creating a table with the top 15 directors in gross revenue in the box office by calculating the sum of the gross revenue, the mean, the median and the standard deviation for each of these 15 directos
+movies_new%&gt;%
+  group_by(director)%&gt;%
+  summarize(sum_gross=sum(gross),mean_gross=mean(gross),median_gross=median(gross),sd_gross=sd(gross))%&gt;%
+  top_n(15, sum_gross)%&gt;%
+  arrange(desc(sum_gross))</code></pre>
+<pre><code>## # A tibble: 15 x 5
+##    director           sum_gross mean_gross median_gross   sd_gross
+##    &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Steven Spielberg  4014061704 174524422.   164435221  101421051.
+##  2 Michael Bay       2195443511 182953626.   168468240. 125789167.
+##  3 James Cameron     1909725910 318287652.   175562880. 309171337.
+##  4 Christopher Nolan 1813227576 226653447    196667606. 187224133.
+##  5 George Lucas      1741418480 348283696    380262555  146193880.
+##  6 Robert Zemeckis   1619309108 124562239.   100853835   91300279.
+##  7 Tim Burton        1557078534 111219895.    69791834   99304293.
+##  8 Sam Raimi         1443167519 180395940.   138480208  174705230.
+##  9 Clint Eastwood    1378321100  72543216.    46700000   75487408.
+## 10 Francis Lawrence  1358501971 271700394.   281666058  135437020.
+## 11 Ron Howard        1335988092 111332341    101587923   81933761.
+## 12 Gore Verbinski    1329600995 189942999.   123207194  154473822.
+## 13 Andrew Adamson    1137446920 284361730    279680930. 120895765.
+## 14 Shawn Levy        1129750988 102704635.    85463309   65484773.
+## 15 Ridley Scott      1128857598  80632686.    47775715   68812285.</code></pre>
+<p>Finally, ratings. We will produce a table that describes how ratings are distributed by genre. We don’t want just the mean, but also, min, max, median, SD and some kind of a histogram or density graph that visually shows how ratings are distributed.</p>
+<pre class="r"><code># Summarizing the information regarding the movie ratings and calculating the mean, median, minimum, maximum and standard deviation of the ratings
+rating_graph &lt;- movies_new%&gt;%
+  group_by(genre)%&gt;%
+  summarize(mean_rating=mean(rating),median_rating=median(rating),sd_rating=sd(rating),min_rating=min(rating),max_rating=max(rating))%&gt;%
+  arrange(desc(mean_rating))
+
+rating_graph</code></pre>
+<pre><code>## # A tibble: 17 x 6
+##    genre       mean_rating median_rating sd_rating min_rating max_rating
+##    &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Biography          7.11          7.2      0.760        4.5        8.9
+##  2 Crime              6.92          6.9      0.853        4.8        9.3
+##  3 Mystery            6.84          6.7      0.910        4.6        8.5
+##  4 Musical            6.75          6.75     0.636        6.3        7.2
+##  5 Drama              6.74          6.8      0.915        2.1        8.8
+##  6 Documentary        6.66          7.4      1.77         1.6        8.5
+##  7 Sci-Fi             6.66          6.4      1.09         5          8.2
+##  8 Animation          6.65          6.9      0.968        4.5        8  
+##  9 Romance            6.65          6.65     0.636        6.2        7.1
+## 10 Adventure          6.51          6.6      1.11         2.3        8.6
+## 11 Family             6.5           5.9      1.22         5.7        7.9
+## 12 Action             6.23          6.3      1.04         2.1        9  
+## 13 Comedy             6.11          6.2      1.02         1.9        8.8
+## 14 Fantasy            6.08          6.2      0.953        4.3        7.9
+## 15 Horror             5.79          5.85     0.987        3.6        8.5
+## 16 Western            5.70          5.70     2.26         4.1        7.3
+## 17 Thriller           4.8           4.8     NA            4.8        4.8</code></pre>
+<pre class="r"><code># Plotting in a density graph the distribution of ratings by genre
+ggplot(movies_new, aes(x = rating))+geom_density(kernel=&quot;gaussian&quot;)+labs(title=&quot;Density of Rating among movies in the IMBD 5000 by genre&quot;, x=&quot;Rating&quot;, y=&quot;Density&quot;) +facet_wrap(~genre)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/load_movies5-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Social medias have a strong impact on a number of things today. We will explore a potential relationship between the number of Facebook likes and the gross revenues.</p>
+<pre class="r"><code># Plotting the relationship between facebook likes and gross revenues to understand if there is a correlation between these two variables
+ggplot(movies_new, aes(x=cast_facebook_likes, y=gross)) + geom_point(alpha=0.5) + 
+  labs(title = &quot;Relationship between facebook likes and gross revenue &quot;, x=&quot;Facebook likes&quot;, y=&quot;Gross Revenue&quot;) + 
+  geom_smooth(method=&quot;lm&quot;) +
+  scale_x_log10() + 
+  scale_y_log10() </code></pre>
+<p><img src="/projects/project2/index_files/figure-html/gross_on_fblikes-1.png" width="648" style="display: block; margin: auto;" />
+Even though there are many outliers, it is possible to affirm that there is a direct positive relationship between Facebook likes and gross revenue of a movie.</p>
+<p>In turn, we will look at the relation between movie budgets and their respective gross revenues. After all, we expect that a big budget movie would bring more gross revenues than a smaller one.</p>
+<pre class="r"><code># Plotting the relationship between the movie budget and gross revenues to understand if there is a correlation between these two variables
+
+ggplot(movies_new, aes(x=budget, y=gross))+ geom_point(alpha=0.5) + 
+  labs(title = &quot;Relationship between budget and revenue&quot;, x=&quot;Movie Budget&quot;, y=&quot;Gross Revenue&quot;) +
+  geom_smooth(method=&quot;lm&quot;) + 
+  scale_x_log10()  + 
+  scale_y_log10()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/gross_on_budget-1.png" width="648" style="display: block; margin: auto;" />
+Just as it was possible to affirm in the previous graph, in this one is also possible to see the direct and positive relationship between the movie budget and its gross revenue, which was expected.</p>
+<p>Another potential predictor of the gross revenues of a movie would be the rating obtained. We will use a scatterplot to explore the relationship between these two.</p>
+<pre class="r"><code># Plotting the relationship between the movie&#39;s rating  and gross revenues to understand if there is a correlation between these two variables, divided by genre
+
+ggplot(movies_new, aes(x=rating, y=gross))+ geom_point()+
+  labs(title = &quot;Relationship between revenue and rating&quot;, x=&quot;Rating&quot;, y=&quot;Gross Revenue&quot;) +
+  geom_smooth(method=&quot;lm&quot;) + 
+  scale_x_log10() + 
+  scale_y_log10() +
+  facet_wrap(~genre)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/gross_on_rating-1.png" width="648" style="display: block; margin: auto;" />
+In the majority of movie genres it is possible to affirm that the rating is a good way to estimate the gross revenue that the movie will make.However, for genres like Romance and Comedy this relationship is not so clear, then it’s not possible to make an estimate of the gross revenues of these kind of movies by its ratings.</p>
+</div>
+<div id="returns-of-financial-stocks" class="section level1">
+<h1>Returns of financial stocks</h1>
+<p>As usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.</p>
+<pre class="r"><code>#Loading the data and getting its Summary
+nyse &lt;- read_csv(here::here(&quot;data&quot;,&quot;nyse.csv&quot;))
+
+skim(nyse)</code></pre>
+<table>
+<caption>(#tab:load_nyse_data)Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">nyse</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">508</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">symbol</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">508</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">name</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">48</td>
+<td align="right">0</td>
+<td align="right">505</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ipo_year</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">33</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">sector</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">12</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">industry</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">62</td>
+<td align="right">0</td>
+<td align="right">103</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">summary_quote</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">31</td>
+<td align="right">34</td>
+<td align="right">0</td>
+<td align="right">508</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>Fortunately, we can keep the data as is.</p>
+<p>To start our analysis, we will rank the number of stocks in each sector.</p>
+<pre class="r"><code># Grouping the companies by sector, counting the number of companies in each sector and arranging the data in descending order  
+stocks &lt;- data.frame(nyse) %&gt;% 
+  group_by(sector) %&gt;%
+  count(sort=TRUE)
+
+# Plotting the number of companies listed in the NYSE by sector
+
+ggplot(data = stocks, aes(y= reorder(sector,n), x=n))+
+  geom_bar(stat=&#39;identity&#39;)+
+  labs(x=&quot;Number of companies&quot;, y=&quot;Sector&quot;, title = &quot;Number of companies listed in the NYSE by sector&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/companies_per_sector-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>To continue our analysis, we are choosing six stocks “BLK”, “JPM”, “CS”, “GS”, “MS”, “RY”, “UBS”, “SPY”.</p>
+<pre class="r"><code># Notice the cache=TRUE argument in the chunk options. Because getting data is time consuming, 
+# cache=TRUE means that once it downloads data, the chunk will not run again next time you knit your Rmd
+
+#Adding our stocks in myStocks to later use this group for the analysis
+
+myStocks &lt;- c(&quot;BLK&quot;,&quot;JPM&quot;,&quot;CS&quot;,&quot;GS&quot;,&quot;MS&quot;,&quot;RY&quot;,&quot;UBS&quot;,&quot;SPY&quot; ) %&gt;%
+  tq_get(get  = &quot;stock.prices&quot;,
+         from = &quot;2011-01-01&quot;,
+         to   = &quot;2020-08-31&quot;) %&gt;%
+  group_by(symbol) 
+
+glimpse(myStocks) # examine the structure of the resulting data frame</code></pre>
+<pre><code>## Rows: 18,463
+## Columns: 8
+## Groups: symbol [8]
+## $ symbol   &lt;chr&gt; &quot;BLK&quot;, &quot;BLK&quot;, &quot;BLK&quot;, &quot;BLK&quot;, &quot;BLK&quot;, &quot;BLK&quot;, &quot;BLK&quot;, &quot;BLK&quot;, &quot;B...
+## $ date     &lt;date&gt; 2011-01-03, 2011-01-04, 2011-01-05, 2011-01-06, 2011-01-0...
+## $ open     &lt;dbl&gt; 192, 191, 190, 193, 192, 188, 192, 195, 194, 195, 199, 196...
+## $ high     &lt;dbl&gt; 195, 192, 193, 193, 192, 192, 196, 195, 196, 199, 200, 197...
+## $ low      &lt;dbl&gt; 190, 189, 189, 188, 185, 187, 191, 191, 192, 194, 194, 191...
+## $ close    &lt;dbl&gt; 190, 190, 192, 190, 188, 191, 193, 194, 196, 199, 197, 192...
+## $ volume   &lt;dbl&gt; 1085200, 794400, 925300, 727300, 886200, 898300, 734000, 8...
+## $ adjusted &lt;dbl&gt; 145, 145, 147, 145, 144, 146, 148, 148, 149, 152, 150, 146...</code></pre>
+<pre class="r"><code>#calculate daily returns
+myStocks_returns_daily &lt;- myStocks %&gt;%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = &quot;daily&quot;, 
+               type       = &quot;log&quot;,
+               col_rename = &quot;daily_returns&quot;,
+               cols = c(nested.col))  
+
+#calculate monthly  returns
+myStocks_returns_monthly &lt;- myStocks %&gt;%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = &quot;monthly&quot;, 
+               type       = &quot;arithmetic&quot;,
+               col_rename = &quot;monthly_returns&quot;,
+               cols = c(nested.col)) 
+
+#calculate yearly returns
+myStocks_returns_annual &lt;- myStocks %&gt;%
+  group_by(symbol) %&gt;%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = &quot;yearly&quot;, 
+               type       = &quot;arithmetic&quot;,
+               col_rename = &quot;yearly_returns&quot;,
+               cols = c(nested.col))</code></pre>
+<p>Now we want to see the performance of our chosen stocks.</p>
+<pre class="r"><code>#Summarising the information about the monthly returns of the chosen stocks and calculating the min,max, median, mean and SD for each of the companies
+  analysis&lt;- myStocks_returns_monthly %&gt;%
+  summarize(mean_return=mean(monthly_returns),median_return=median(monthly_returns),sd_return=sd(monthly_returns),min_return=min(monthly_returns),max_return=max(monthly_returns))%&gt;%
+  arrange(desc(mean_return))</code></pre>
+<p>For our last two analysis, we will first plot the density of monthly returns for each stock.</p>
+<pre class="r"><code># Plotting a density chart of the monthly returns for each of the stocks
+ggplot(myStocks_returns_monthly, 
+       aes(x= monthly_returns*100))+
+  geom_density(kernel=&quot;gaussian&quot;)+
+  labs(title=&quot;Density of Monthly Returns&quot;, x=&quot;Monthly Return(in %)&quot;, y=&quot;Density&quot;) + 
+  facet_wrap(~symbol)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/density_monthly_returns-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>What can you infer from this plot? Which stock is the riskiest? The least risky?</p>
+<p>From the plot it is clear to see that the individuals stocks are more risky than the ETF as their returns are more variable. Morgan Stanley is the riskiest stock with a volatility (standar deviation of the monthly returns) of 9.28% and the least risky, as it was expected, it is the SPY Index with a volatility of 3.81%. This was expected since the ETF is a combination of 500 stocks, which has its systematic risk lowered through diversification.</p>
+<p>Lastly, we have a look at the standard deviation against the mean for our six stocks.</p>
+<pre class="r"><code>#Plotting the standard deviation against the mean return for the stocks chosen 
+ggplot(analysis, aes(x=sd_return*100, y=mean_return*100,label= symbol))+geom_point() + geom_text_repel()+ 
+  labs(title=&quot;Relation between the Mean Return and Standard Deviation&quot;, x=&quot;Standard Deviation (in %)&quot;, y=&quot;Mean Return (in %)&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/risk_return_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>From the plot we can see that CS is the worst performing stock within this group and it is the second most risky, which means that it has the lowest sharpe ratio (Return/Volatility), this way, it would have been the worst choice. On the other hand, you can also see that BlackRock (BLK) is the one with the greatest mean return while having a medium volatility compared to its peers. Lastly, comparing Morgan Stanley (MS) with SPY, it’s clear to see that it would not have been worth to invest in it as the historical mean returns of both assets were similar.</p>
+</div>
+<div id="on-your-own-ibm-hr-analytics" class="section level1">
+<h1>On your own: IBM HR Analytics</h1>
+<p>For this task, we will work on the cleaned version of the IBM HR Analytics Employee Attrition &amp; Performance data set. We will explore the dataset and provide a summary of it.</p>
+<p>We will want to check for missing variables or duplicates before the start of our analysis.</p>
+<pre class="r"><code>skim(hr_cleaned)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">hr_cleaned</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">1470</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">19</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">10</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">9</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">attrition</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">department</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">education</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">13</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gender</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">job_role</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">environment_satisfaction</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">job_satisfaction</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">marital_status</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">8</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">performance_rating</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">work_life_balance</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">age</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">36.92</td>
+<td align="right">9.14</td>
+<td align="right">18</td>
+<td align="right">30</td>
+<td align="right">36</td>
+<td align="right">43</td>
+<td align="right">60</td>
+<td align="left">▂▇▇▃▂</td>
+</tr>
+<tr class="even">
+<td align="left">daily_rate</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">802.49</td>
+<td align="right">403.51</td>
+<td align="right">102</td>
+<td align="right">465</td>
+<td align="right">802</td>
+<td align="right">1157</td>
+<td align="right">1499</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="odd">
+<td align="left">distance_from_home</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9.19</td>
+<td align="right">8.11</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">7</td>
+<td align="right">14</td>
+<td align="right">29</td>
+<td align="left">▇▅▂▂▂</td>
+</tr>
+<tr class="even">
+<td align="left">monthly_income</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6502.93</td>
+<td align="right">4707.96</td>
+<td align="right">1009</td>
+<td align="right">2911</td>
+<td align="right">4919</td>
+<td align="right">8379</td>
+<td align="right">19999</td>
+<td align="left">▇▅▂▁▂</td>
+</tr>
+<tr class="odd">
+<td align="left">num_companies_worked</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.69</td>
+<td align="right">2.50</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="left">▇▃▂▂▁</td>
+</tr>
+<tr class="even">
+<td align="left">percent_salary_hike</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">15.21</td>
+<td align="right">3.66</td>
+<td align="right">11</td>
+<td align="right">12</td>
+<td align="right">14</td>
+<td align="right">18</td>
+<td align="right">25</td>
+<td align="left">▇▅▃▂▁</td>
+</tr>
+<tr class="odd">
+<td align="left">total_working_years</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">11.28</td>
+<td align="right">7.78</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">10</td>
+<td align="right">15</td>
+<td align="right">40</td>
+<td align="left">▇▇▂▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">years_at_company</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7.01</td>
+<td align="right">6.13</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">9</td>
+<td align="right">40</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">years_since_last_promotion</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.19</td>
+<td align="right">3.22</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">15</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+<p>All right !
+Now let’s start our proper analysis.</p>
+<ol style="list-style-type: decimal">
+<li>How often do people leave the company:</li>
+</ol>
+<pre class="r"><code>hr_cleaned %&gt;% 
+  count(attrition)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   attrition     n
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 No         1233
+## 2 Yes         237</code></pre>
+<pre class="r"><code>attrition_count &lt;- hr_cleaned %&gt;% 
+  group_by(attrition) %&gt;% 
+  count()
+
+attrition_count[2,2] / (attrition_count[2,2] + attrition_count[1,2] )</code></pre>
+<pre><code>##       n
+## 1 0.161</code></pre>
+<p>From the table above it can be seen that 237 out of the 1470 left the company. This corresponds to 16.1%.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Second, we will look at the distribution of different variables (<code>age</code>, <code>years_at_company</code>, <code>monthly_income</code> and <code>years_since_last_promotion</code>) and interpret our results.</li>
+</ol>
+<pre class="r"><code>ggplot(hr_cleaned, aes(x = age))+
+  geom_density(kernel=&quot;gaussian&quot;)+
+  labs(title=&quot;Distribution of the age of the individuals&quot;, x=&quot;Age&quot;, y=&quot;Density&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/distribution_age-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(hr_cleaned, aes(x=years_at_company))+
+  geom_density(kernel=&quot;gaussian&quot;)+
+  labs(title=&quot;Distribution of the numbers or years individuals have been at the company&quot;, x=&quot;Years at the company&quot;, y=&quot;Density&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/distribution_years_at_company-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(hr_cleaned, aes(x=monthly_income))+
+  geom_density(kernel=&quot;gaussian&quot;)+
+  labs(title=&quot;Distribution of the monthly income&quot;, x=&quot;Monthly Income&quot;, y=&quot;Density&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/distribution_monthly_income-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(hr_cleaned, aes(x=years_since_last_promotion))+
+  geom_density(kernel=&quot;gaussian&quot;)+
+  labs(title=&quot;Distribution of the years since last promotion&quot;, x=&quot;Years since last promotion&quot;, y=&quot;Density&quot;)</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/distribution_years_since_last_promotion-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>We can see that only the age is approximating a normal distribution around 35 years old.
+From the distribution of years in the company, we can see that most people have less than 10 years of experience in the company, the graph is highly skewed to the right.
+The monthly income and the years since last promotion follow the same pattern, that is highly skewed to the right, indicating that most people earn an entry-level job salary and that most people have been promoted in the 3 previous years.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Now we will analyse the distribution among job satisfaction and work-life balance.</li>
+</ol>
+<pre class="r"><code>hr_cleaned$work_life_balance = factor(hr_cleaned$work_life_balance, levels = c(&quot;Bad&quot;,&quot;Good&quot;,&quot;Better&quot;,&quot;Best&quot;))
+
+ggplot(hr_cleaned, aes(x=work_life_balance, y= (..count..)/sum(..count..))) + 
+  geom_bar() +
+  scale_y_continuous(labels=scales::percent) +
+  labs(title = &quot;Distribution of work-life balance in %&quot;, x=&quot;Category&quot;, y=&quot;Percentage&quot;) + 
+  theme_light()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/unnamed-chunk-6-1.png" width="648" style="display: block; margin: auto;" />
+The distribution shows that most employees have a work-life balance that is good or higher. The most represented category is “Better” which includes more than 60% of the employees. Less than one in ten employees has a bad work-life balance.</p>
+<pre class="r"><code>hr_cleaned$job_satisfaction = factor(hr_cleaned$job_satisfaction, levels = c(&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;,&quot;Very High&quot;))  
+
+ggplot(hr_cleaned, aes(x=job_satisfaction, y= (..count..)/sum(..count..))) + 
+  geom_bar() +
+  scale_y_continuous(labels=scales::percent) +
+  labs(title = &quot;Distribution of job satisfaction in %&quot;, x=&quot;Category&quot;, y=&quot;Percentage&quot;) + 
+  theme_light()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/unnamed-chunk-7-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>The distribution for the job satisfaction shows that most of the employees are very satisfied. More than 30% of the employees report a very high satisfaction while another 30% report high satisfaction. Less than one in five employees has a low job satisfaction.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Is there any relationship between monthly income and education? Monthly income and gender?</li>
+</ol>
+<pre class="r"><code>  hr_cleaned$education = factor(hr_cleaned$education, levels = c(&quot;Below College&quot;,&quot;College&quot;,&quot;Bachelor&quot;,&quot;Master&quot;,&quot;Doctor&quot;))  
+
+
+  ggplot(hr_cleaned, aes(x=education,y=monthly_income))+
+  geom_boxplot()+ 
+  scale_y_continuous(label=dollar)+
+  labs(title = &quot;Relationship between monthly income and education&quot;, x=&quot;Education&quot;, y=&quot;Monthly income&quot;)+
+    theme_light()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/relationships-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(hr_cleaned, aes(x=gender, y=monthly_income))+ 
+  geom_boxplot()+ 
+  scale_y_continuous(label=dollar)+
+  labs(title = &quot;Relationship between monthly income and gender&quot;, x=&quot;Gender&quot;, y=&quot;Monthly income&quot;)+
+  theme_light()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/relationships-2.png" width="648" style="display: block; margin: auto;" />
+We can see that the education has an influence on the monthly income. Indeed, as one progresses in towards a higher degree, the mean of the monthly income increases. However, as shown by the growing boxes, the spread of monthly income within a certain education grade is also increasing as one takes on more education.</p>
+<p>Regarding the relation between gender and the monthly income. We were happily surprised to see an average monthly income higher for females. The spread is quite similar. We can conclude that monthly income are not influenced by the gender.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Another interesting relation would be between monthly income and job roles. We expect to see a higher monthly income for roles that have more seniority and more responsibilities.</li>
+</ol>
+<pre class="r"><code>  ggplot(hr_cleaned, aes(x=reorder(job_role, -monthly_income),y=monthly_income))+
+  geom_boxplot()+ 
+  scale_y_continuous(label=dollar)+
+  labs(title = &quot;Relationship between monthly income and job roles&quot;, x=&quot;Job Roles&quot;, y=&quot;Monthly income&quot;)+
+    theme_light()+
+    theme(axis.text.x = element_text(angle = 45, hjust=1))</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/job_role-1.png" width="648" style="display: block; margin: auto;" />
+We can see from our boxplots graph that our hypothesis was right. We see a large difference between senior roles such as Director and Manager from the rest of the job roles. Nevertheless, we can see the evolution of monthly income among the job roles present in our dataset.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>The next analysis will be to look at the median of monhtly income per education level.</li>
+</ol>
+<pre class="r"><code>mean_by_education &lt;- hr_cleaned %&gt;% 
+  group_by(education) %&gt;% 
+  summarise(median_income=median(monthly_income))
+
+ggplot(mean_by_education, aes(x=reorder(education, -median_income), y=median_income)) + 
+  geom_col(stat = &quot;identity&quot;)  + 
+  labs(title = &quot;Median income per education level&quot;, x=&quot;Education&quot;, y=&quot;Median income&quot;) + 
+  scale_y_continuous(label=dollar)+
+  theme_light()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/unnamed-chunk-8-1.png" width="648" style="display: block; margin: auto;" />
+It can be seen that the median income is highest for employees with a Doctor degree and falls almost as expected for the lower degrees. Employees with a College degree do however have a slightly higher income than Bachelors even though the education rank is the other way round.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>We have earlier seen that education is a factor determining the monthly income. It would be useful to see the actual distribution of monthly income for each education level.</li>
+</ol>
+<pre class="r"><code>  ggplot(hr_cleaned, aes(x=monthly_income))+
+  geom_density()+ 
+  facet_wrap(~education)+
+  labs(title = &quot;Distribution of monthly income by education level&quot;, x=&quot;Monthly Income&quot;, y=&quot;Density&quot;)+
+    theme_solarized()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/income_education-1.png" width="648" style="display: block; margin: auto;" /></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Lastly, we’ll have a look at income vs age, faceted by <code>job_role</code>.</li>
+</ol>
+<pre class="r"><code>ggplot(hr_cleaned, aes(x=age,y=monthly_income)) + 
+  geom_point() +
+  facet_wrap(~job_role) + geom_smooth(method = &quot;lm&quot;)  + 
+  labs(title = &quot;Income per job role by age&quot;, x=&quot;Age&quot;, y=&quot;Monthly income&quot;) + 
+  theme_light()</code></pre>
+<p><img src="/projects/project2/index_files/figure-html/unnamed-chunk-9-1.png" width="648" style="display: block; margin: auto;" />
+The graph shows that the income rises on average with increasing age. Further it can also be seen that some jobs have a higher income level in general than others. Managers and Research Directors are paid the highest income while Sales Representatives earn on average the least. Finally, it can be inferred which jobs are entry-level and which can only be obtained after some years experience. Especially Managers are all at least 30 years of age while Laboratory Technicians, Sales Representatives and Sales Executives have a high density in the earlier years.</p>
+</div>
+<div id="challenge-1-replicating-a-chart" class="section level1">
+<h1>Challenge 1: Replicating a chart</h1>
+<p>The purpose of this exercise is to make a publication-ready plot using your <code>dplyr</code> and <code>ggplot2</code> skills. Open the journal article “Riddell_Annals_Hom-Sui-Disparities.pdf”. Read the abstract and have a look at Figure 3. The data you need is “CDC_Males.csv”.</p>
+<p>Don’t worry about replicating it exactly, try and see how far you can get. You’re encouraged to work together if you want to and exchange tips/tricks you figured out.</p>
+<p>You may find these helpful:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html" class="uri">https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html</a></li>
+<li><a href="http://colorbrewer2.org" class="uri">http://colorbrewer2.org</a></li>
+</ul>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 2: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">CDC_Males</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">104</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">28</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">7</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">21</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ST</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">52</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">State</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">4</td>
+<td align="right">20</td>
+<td align="right">0</td>
+<td align="right">52</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">type</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">7</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">ST.order.RD.homicide</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">52</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ST.order.RD.suicide</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">52</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">gun.house.prev.category</td>
+<td align="right">4</td>
+<td align="right">0.96</td>
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">type.fac</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">15</td>
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="6%" />
+<col width="8%" />
+<col width="6%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Population.Black</td>
+<td align="right">2</td>
+<td align="right">0.98</td>
+<td align="right">3.41e+06</td>
+<td align="right">3.95e+06</td>
+<td align="right">4.05e+04</td>
+<td align="right">3.07e+05</td>
+<td align="right">1.47e+06</td>
+<td align="right">5.98e+06</td>
+<td align="right">1.35e+07</td>
+<td align="left">▇▂▂▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Population.White</td>
+<td align="right">2</td>
+<td align="right">0.98</td>
+<td align="right">1.74e+07</td>
+<td align="right">1.53e+07</td>
+<td align="right">1.01e+06</td>
+<td align="right">5.69e+06</td>
+<td align="right">1.35e+07</td>
+<td align="right">2.28e+07</td>
+<td align="right">6.93e+07</td>
+<td align="left">▇▃▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Deaths.homicide.Black</td>
+<td align="right">21</td>
+<td align="right">0.80</td>
+<td align="right">1.43e+03</td>
+<td align="right">5.94e+03</td>
+<td align="right">1.10e+01</td>
+<td align="right">7.75e+01</td>
+<td align="right">2.47e+02</td>
+<td align="right">1.34e+03</td>
+<td align="right">5.38e+04</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Deaths.homicide.White</td>
+<td align="right">2</td>
+<td align="right">0.98</td>
+<td align="right">4.83e+02</td>
+<td align="right">1.91e+03</td>
+<td align="right">1.00e+01</td>
+<td align="right">5.42e+01</td>
+<td align="right">1.40e+02</td>
+<td align="right">3.83e+02</td>
+<td align="right">1.84e+04</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">crude.homicide.Black</td>
+<td align="right">26</td>
+<td align="right">0.75</td>
+<td align="right">1.78e+01</td>
+<td align="right">1.61e+01</td>
+<td align="right">1.70e+00</td>
+<td align="right">3.47e+00</td>
+<td align="right">1.48e+01</td>
+<td align="right">2.93e+01</td>
+<td align="right">6.27e+01</td>
+<td align="left">▇▃▃▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">crude.homicide.White</td>
+<td align="right">10</td>
+<td align="right">0.90</td>
+<td align="right">1.47e+00</td>
+<td align="right">1.13e+00</td>
+<td align="right">2.70e-01</td>
+<td align="right">7.00e-01</td>
+<td align="right">1.01e+00</td>
+<td align="right">1.90e+00</td>
+<td align="right">4.74e+00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">adjusted.homicide.Black</td>
+<td align="right">26</td>
+<td align="right">0.75</td>
+<td align="right">1.68e+01</td>
+<td align="right">1.52e+01</td>
+<td align="right">1.68e+00</td>
+<td align="right">3.48e+00</td>
+<td align="right">1.29e+01</td>
+<td align="right">2.78e+01</td>
+<td align="right">5.94e+01</td>
+<td align="left">▇▃▃▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">adjusted.homicide.White</td>
+<td align="right">10</td>
+<td align="right">0.90</td>
+<td align="right">1.50e+00</td>
+<td align="right">1.17e+00</td>
+<td align="right">2.40e-01</td>
+<td align="right">6.70e-01</td>
+<td align="right">9.90e-01</td>
+<td align="right">1.98e+00</td>
+<td align="right">4.79e+00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Deaths.suicide.Black</td>
+<td align="right">19</td>
+<td align="right">0.82</td>
+<td align="right">3.88e+02</td>
+<td align="right">1.25e+03</td>
+<td align="right">1.10e+01</td>
+<td align="right">5.70e+01</td>
+<td align="right">1.20e+02</td>
+<td align="right">3.23e+02</td>
+<td align="right">8.93e+03</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Deaths.suicide.White</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">4.53e+03</td>
+<td align="right">1.63e+04</td>
+<td align="right">2.30e+01</td>
+<td align="right">7.20e+02</td>
+<td align="right">1.73e+03</td>
+<td align="right">3.37e+03</td>
+<td align="right">1.39e+05</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">crude.suicide.Black</td>
+<td align="right">26</td>
+<td align="right">0.75</td>
+<td align="right">5.35e+00</td>
+<td align="right">2.00e+00</td>
+<td align="right">1.62e+00</td>
+<td align="right">4.24e+00</td>
+<td align="right">5.24e+00</td>
+<td align="right">6.33e+00</td>
+<td align="right">1.50e+01</td>
+<td align="left">▃▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">crude.suicide.White</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">1.38e+01</td>
+<td align="right">5.52e+00</td>
+<td align="right">2.27e+00</td>
+<td align="right">1.01e+01</td>
+<td align="right">1.22e+01</td>
+<td align="right">1.71e+01</td>
+<td align="right">2.96e+01</td>
+<td align="left">▁▇▃▃▁</td>
+</tr>
+<tr class="odd">
+<td align="left">adjusted.suicide.Black</td>
+<td align="right">26</td>
+<td align="right">0.75</td>
+<td align="right">5.43e+00</td>
+<td align="right">1.87e+00</td>
+<td align="right">1.79e+00</td>
+<td align="right">4.33e+00</td>
+<td align="right">5.41e+00</td>
+<td align="right">6.41e+00</td>
+<td align="right">1.28e+01</td>
+<td align="left">▃▇▅▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">adjusted.suicide.White</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">1.32e+01</td>
+<td align="right">5.06e+00</td>
+<td align="right">2.35e+00</td>
+<td align="right">9.72e+00</td>
+<td align="right">1.18e+01</td>
+<td align="right">1.62e+01</td>
+<td align="right">2.86e+01</td>
+<td align="left">▁▇▃▂▁</td>
+</tr>
+<tr class="odd">
+<td align="left">crude.RD.suicide</td>
+<td align="right">26</td>
+<td align="right">0.75</td>
+<td align="right">-8.37e+00</td>
+<td align="right">4.30e+00</td>
+<td align="right">-1.93e+01</td>
+<td align="right">-1.09e+01</td>
+<td align="right">-6.85e+00</td>
+<td align="right">-5.45e+00</td>
+<td align="right">1.78e+00</td>
+<td align="left">▂▃▅▇▁</td>
+</tr>
+<tr class="even">
+<td align="left">adj.RD.suicide</td>
+<td align="right">26</td>
+<td align="right">0.75</td>
+<td align="right">-7.55e+00</td>
+<td align="right">3.63e+00</td>
+<td align="right">-1.56e+01</td>
+<td align="right">-9.84e+00</td>
+<td align="right">-6.50e+00</td>
+<td align="right">-5.26e+00</td>
+<td align="right">1.83e+00</td>
+<td align="left">▃▃▇▃▁</td>
+</tr>
+<tr class="odd">
+<td align="left">crude.RD.homicide</td>
+<td align="right">28</td>
+<td align="right">0.73</td>
+<td align="right">1.59e+01</td>
+<td align="right">1.51e+01</td>
+<td align="right">1.11e+00</td>
+<td align="right">2.72e+00</td>
+<td align="right">1.25e+01</td>
+<td align="right">2.63e+01</td>
+<td align="right">6.00e+01</td>
+<td align="left">▇▃▃▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">adj.RD.homicide</td>
+<td align="right">28</td>
+<td align="right">0.73</td>
+<td align="right">1.49e+01</td>
+<td align="right">1.42e+01</td>
+<td align="right">1.27e+00</td>
+<td align="right">2.77e+00</td>
+<td align="right">1.11e+01</td>
+<td align="right">2.38e+01</td>
+<td align="right">5.66e+01</td>
+<td align="left">▇▃▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">gun.house.prev</td>
+<td align="right">4</td>
+<td align="right">0.96</td>
+<td align="right">3.90e+01</td>
+<td align="right">1.41e+01</td>
+<td align="right">1.02e+01</td>
+<td align="right">3.23e+01</td>
+<td align="right">4.03e+01</td>
+<td align="right">4.65e+01</td>
+<td align="right">6.55e+01</td>
+<td align="left">▃▂▇▅▃</td>
+</tr>
+<tr class="even">
+<td align="left">average.pop.white</td>
+<td align="right">2</td>
+<td align="right">0.98</td>
+<td align="right">1.94e+06</td>
+<td align="right">1.70e+06</td>
+<td align="right">1.13e+05</td>
+<td align="right">6.33e+05</td>
+<td align="right">1.50e+06</td>
+<td align="right">2.53e+06</td>
+<td align="right">7.70e+06</td>
+<td align="left">▇▃▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">average.pop.black</td>
+<td align="right">2</td>
+<td align="right">0.98</td>
+<td align="right">3.78e+05</td>
+<td align="right">4.38e+05</td>
+<td align="right">4.50e+03</td>
+<td align="right">3.41e+04</td>
+<td align="right">1.64e+05</td>
+<td align="right">6.65e+05</td>
+<td align="right">1.51e+06</td>
+<td align="left">▇▂▂▁▁</td>
+</tr>
+</tbody>
+</table>
+<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/challenge1.jpg" width="900" style="display: block; margin: auto;" /></p>
+</div>
+<div id="challenge-2-2016-california-contributors-plots" class="section level1">
+<h1>Challenge 2: 2016 California Contributors plots</h1>
+<p>As discussed in class, I would like you to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
+<p><img src="C:/Users/NOEL Jules/Music/Data Analysis/Individual Web Portfolio/my_website/images/challenge2.png" width="100%" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
+zip_code &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
+
+#Assigning a numerical value to the zip code column of the database
+zip_code &lt;- zip_code %&gt;% 
+  mutate(zip = as.numeric(zip))
+
+#Merging the two data frames
+CA_contributors_2016 &lt;- CA_contributors_2016 %&gt;% 
+  inner_join(zip_code, by =  &quot;zip&quot;)
+
+#Cleaning the data frames in order to only have the variables we want to analyze
+CA_contributors_2016_adapted &lt;- CA_contributors_2016 %&gt;%
+  group_by(cand_nm,primary_city) %&gt;% 
+  summarise(total_amt = sum(contb_receipt_amt)) %&gt;% 
+  select(candidate = cand_nm, city = primary_city, money_raised = total_amt)
+
+# Plotting Hillary Clinton&#39;s top 10 contribution cities
+clinton &lt;- CA_contributors_2016_adapted %&gt;%
+  filter(candidate == &quot;Clinton, Hillary Rodham&quot;) %&gt;%
+  top_n(10, wt = money_raised) %&gt;% 
+  ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + 
+  geom_col(fill = &quot;blue&quot;) +   
+  facet_grid(.~candidate) +
+  scale_x_continuous(label=dollar) + 
+  theme_update(plot.title = element_text(hjust = 1)) + 
+  theme(strip.background = element_rect(fill = &quot;grey&quot;), 
+        stip.text = element_text(size = 10, color = &quot;black&quot;)) + 
+  labs(title = NULL, subtitile = NULL, x= NULL, y=NULL)+
+  theme_bw()
+
+# Plotting Donald Trump&#39;s top 10 contribution cities
+trump &lt;- CA_contributors_2016_adapted %&gt;%
+  filter(candidate == &quot;Trump, Donald J.&quot;) %&gt;%
+  top_n(10, wt = money_raised) %&gt;% 
+  ggplot(aes(x = money_raised, y = reorder(city, money_raised))) + 
+  geom_col(fill = &quot;red&quot;) +   
+  facet_grid(.~candidate) +
+  scale_x_continuous(label=dollar) + 
+  theme_update(plot.title = element_text(hjust = 1)) + 
+  theme(strip.background = element_rect(fill = &quot;grey&quot;), 
+        stip.text = element_text(size = 10, color = &quot;black&quot;)) + 
+  labs(title = NULL, subtitile = NULL, x= NULL, y=NULL)+
+  theme_bw()
+
+# Combining the 2 graphs together and adding title
+clinton_trump_top10 &lt;- clinton + trump +
+  plot_annotation(title = &quot;Where did candidates raise most money?&quot;, caption = &quot;Amount Raised&quot;) 
+  theme_update(plot.title = element_text(size = 10, hjust = 0.1, face = &quot;bold&quot;),
+               aspect.ratio = 9/4,
+               plot.caption = element_text(hjust = 0.55, vjust = 0.5, face = &quot;bold&quot;))
+
+# Save the graph to then display it
+ggsave(&quot;challenge_accepted.jpg&quot;, plot = clinton_trump_top10, width = 9, height = 4, path = here::here(&quot;images&quot;))
+
+# Display groph
+knitr::include_graphics(here::here(&quot;images&quot;, &quot;challenge_accepted.jpg&quot;))</code></pre>
+<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/challenge_accepted.jpg" width="1350" style="display: block; margin: auto;" /></p>
+<p>In order to create the same plot for the top 10 candidates instead of just top 2, our codes are as follow:</p>
+<pre class="r"><code># We need to by candidates and select the top 10
+top_10_candidates &lt;- CA_contributors_2016 %&gt;%
+  group_by(cand_nm) %&gt;%
+  summarize(contb_total_amt=sum(contb_receipt_amt)) %&gt;%
+  top_n(10, contb_total_amt) %&gt;%
+  arrange(desc(contb_total_amt))
+
+# create a list for top 10 candidates&#39; names
+top_10_candidates &lt;- top_10_candidates$cand_nm
+
+# create the plot
+plot_top_10 &lt;- CA_contributors_2016_adapted %&gt;%
+  group_by(candidate) %&gt;%
+  filter(candidate %in% top_10_candidates) %&gt;%
+  top_n(10, money_raised) %&gt;%
+  ggplot(aes(x=money_raised,y=reorder_within(city,money_raised,candidate)))+
+  geom_col()+
+  scale_y_reordered()+
+  facet_wrap(~candidate,scales=&#39;free&#39;)+
+  labs(title =&#39;Where did candidates raise most money?&#39;, x = NULL, y = NULL) +
+  scale_x_continuous(label=dollar) + 
+  theme_bw()
+
+# save the plot
+ggsave(&quot;top10plot.jpg&quot;,plot=plot_top_10,width = 15,height = 10, path = here::here(&quot;images&quot;))
+
+# show the plot
+knitr::include_graphics(here::here(&quot;images&quot;, &quot;top10plot.jpg&quot;))</code></pre>
+<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/top10plot.jpg" width="2250" style="display: block; margin: auto;" /></p>
+</div>
+<div id="deliverables" class="section level1">
+<h1>Deliverables</h1>
+<p>There is a lot of explanatory text, comments, etc. You do not need these, so delete them and produce a stand-alone document that you could share with someone. Knit the edited and completed R Markdown file as an HTML document (use the “Knit” button at the top of the script editor window) and upload it to Canvas.</p>
+</div>
+<div id="details" class="section level1">
+<h1>Details</h1>
+<ul>
+<li>Who did you collaborate with: Entire Group 26</li>
+<li>Approximately how much time did you spend on this problem set: Tutorial + 25 man working hours - Two sessions with the group.</li>
+<li>What, if anything, gave you the most trouble: the challenges - 1 especially - when trying to match the colors - we achieved a quite accurate result but it would be useful to have a pipette for colors like in excel or PPT.</li>
+</ul>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

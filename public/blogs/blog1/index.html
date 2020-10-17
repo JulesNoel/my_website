@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A preview about me and my R works">
+	<meta name="author" content="Jules Noël">
+	<meta name="generator" content="Hugo 0.76.4" />
+	<title>Project 1 &middot; Portfolio website of Jules Noël</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Jules Noël</strong> <span>A data analytics work</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/projects">Projects</a></li>
+            
+                <li><a href="/blogs/ipsum">My CV</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/projects" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Project 1</h1>
+                            </header>
+                            
+                            
+
+
+<div id="watching-list" class="section level1">
+<h1>Watching List</h1>
+<p>Nowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.</p>
+<p>So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found.</p>
+<p>In order to construct such list, I am going to explore the data <code>movies</code> used during our first assignment in Data Analytics in Finance.</p>
+<p>Let’s first remind ourselves the composition of the data set.</p>
+<pre class="r"><code># Reading the data and analyzing the information
+movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
+
+# I use glimpe and skim to explore the data
+skim(movies)</code></pre>
+<table>
+<caption>(#tab:load_movies)Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">movies</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">2961</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">11</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">8</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">title</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">83</td>
+<td align="right">0</td>
+<td align="right">2907</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">genre</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">17</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">director</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">32</td>
+<td align="right">0</td>
+<td align="right">1366</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="6%" />
+<col width="9%" />
+<col width="6%" />
+<col width="6%" />
+<col width="4%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">year</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.00e+03</td>
+<td align="right">9.95e+00</td>
+<td align="right">1920.0</td>
+<td align="right">2.00e+03</td>
+<td align="right">2.00e+03</td>
+<td align="right">2.01e+03</td>
+<td align="right">2.02e+03</td>
+<td align="left">▁▁▁▂▇</td>
+</tr>
+<tr class="even">
+<td align="left">duration</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.10e+02</td>
+<td align="right">2.22e+01</td>
+<td align="right">37.0</td>
+<td align="right">9.50e+01</td>
+<td align="right">1.06e+02</td>
+<td align="right">1.19e+02</td>
+<td align="right">3.30e+02</td>
+<td align="left">▃▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">gross</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.81e+07</td>
+<td align="right">7.25e+07</td>
+<td align="right">703.0</td>
+<td align="right">1.23e+07</td>
+<td align="right">3.47e+07</td>
+<td align="right">7.56e+07</td>
+<td align="right">7.61e+08</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">budget</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4.06e+07</td>
+<td align="right">4.37e+07</td>
+<td align="right">218.0</td>
+<td align="right">1.10e+07</td>
+<td align="right">2.60e+07</td>
+<td align="right">5.50e+07</td>
+<td align="right">3.00e+08</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">cast_facebook_likes</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.24e+04</td>
+<td align="right">2.05e+04</td>
+<td align="right">0.0</td>
+<td align="right">2.24e+03</td>
+<td align="right">4.60e+03</td>
+<td align="right">1.69e+04</td>
+<td align="right">6.57e+05</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">votes</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.09e+05</td>
+<td align="right">1.58e+05</td>
+<td align="right">5.0</td>
+<td align="right">1.99e+04</td>
+<td align="right">5.57e+04</td>
+<td align="right">1.33e+05</td>
+<td align="right">1.69e+06</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">reviews</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.03e+02</td>
+<td align="right">4.94e+02</td>
+<td align="right">2.0</td>
+<td align="right">1.99e+02</td>
+<td align="right">3.64e+02</td>
+<td align="right">6.31e+02</td>
+<td align="right">5.31e+03</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">rating</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6.39e+00</td>
+<td align="right">1.05e+00</td>
+<td align="right">1.6</td>
+<td align="right">5.80e+00</td>
+<td align="right">6.50e+00</td>
+<td align="right">7.10e+00</td>
+<td align="right">9.30e+00</td>
+<td align="left">▁▁▆▇▁</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>glimpse(movies)</code></pre>
+<pre><code>## Rows: 2,961
+## Columns: 11
+## $ title               &lt;chr&gt; &quot;Avatar&quot;, &quot;Titanic&quot;, &quot;Jurassic World&quot;, &quot;The Ave...
+## $ genre               &lt;chr&gt; &quot;Action&quot;, &quot;Drama&quot;, &quot;Action&quot;, &quot;Action&quot;, &quot;Action&quot;...
+## $ director            &lt;chr&gt; &quot;James Cameron&quot;, &quot;James Cameron&quot;, &quot;Colin Trevor...
+## $ year                &lt;dbl&gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015,...
+## $ duration            &lt;dbl&gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93...
+## $ gross               &lt;dbl&gt; 7.61e+08, 6.59e+08, 6.52e+08, 6.23e+08, 5.33e+0...
+## $ budget              &lt;dbl&gt; 2.37e+08, 2.00e+08, 1.50e+08, 2.20e+08, 1.85e+0...
+## $ cast_facebook_likes &lt;dbl&gt; 4834, 45223, 8458, 87697, 57802, 37723, 13485, ...
+## $ votes               &lt;dbl&gt; 886204, 793059, 418214, 995415, 1676169, 534658...
+## $ reviews             &lt;dbl&gt; 3777, 2843, 1934, 2425, 5312, 3917, 1752, 1752,...
+## $ rating              &lt;dbl&gt; 7.9, 7.7, 7.0, 8.1, 9.0, 6.5, 8.7, 7.5, 8.5, 7....</code></pre>
+<p>Fortunately, there is no missing values in the data set. It is also already cleaned and tidy.
+However, we see that there are some duplicates so let’s remove them. I am goignto remove these duplicates.</p>
+<pre class="r"><code># Removing duplicates
+movies_new &lt;- movies %&gt;% 
+  distinct(title, .keep_all= TRUE)</code></pre>
+<p>I can now begin my analysis.</p>
+<p>I will begin by filtering the movies by the year of production, I want to focus my attention to the most recent blockbusters since 2000. Then, I’ll see the distribution for each year and by year of the number of movies.</p>
+<pre class="r"><code>movies_new &lt;- movies_new %&gt;%
+  filter(year &gt;= 2000)
+
+# Creating a plot
+ggplot(movies_new, 
+       aes(
+         x = year)) +
+  # Designing the graph 
+  geom_histogram(fill = &quot;cyan&quot;, colour = &quot;black&quot;, alpha = 0.4)+
+  
+  # Labeling the axes
+  labs(
+    x = &quot;Year&quot;, 
+    y = &quot; Count&quot;, 
+    title = &quot;Most are porduce evenly among the years&quot;
+  )</code></pre>
+<p><img src="/blogs/blog1_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" />
+We see that the movies are well spread over the years, expect for two years.
+I now want to see the genre categories with the most movies.</p>
+<pre class="r"><code># Counting by genre
+movies_new %&gt;%
+  count(genre) %&gt;%
+  # Arranging in descending order
+  arrange(desc(n))</code></pre>
+<pre><code>## # A tibble: 16 x 2
+##    genre           n
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 Comedy        616
+##  2 Action        500
+##  3 Drama         352
+##  4 Adventure     206
+##  5 Crime         127
+##  6 Biography      98
+##  7 Horror         93
+##  8 Animation      27
+##  9 Documentary    22
+## 10 Mystery        14
+## 11 Fantasy         9
+## 12 Sci-Fi          4
+## 13 Romance         2
+## 14 Family          1
+## 15 Thriller        1
+## 16 Western         1</code></pre>
+<p>Also, I like very long movies, I’ll thus filter by duration and take movies that last only 2h30 or more.</p>
+<pre class="r"><code># Filtering movies over 150 minutes in duration
+movies_new &lt;- movies_new %&gt;% 
+  filter(duration &gt; 150)</code></pre>
+<p>I would like to have an idea of the rating average among the genres, I will only watch movies from the four highest ranked genre in our data set.
+Let’s use a boxplot to see this.</p>
+<pre class="r"><code># Plotting movies by genre
+ggplot(movies_new, 
+       aes( 
+         x = reorder(genre, rating), 
+         y = rating, 
+         colour = genre)) +
+  geom_boxplot() +
+  
+  # Labeling the axes
+  labs(
+    title = &quot;Adventure and Crime are the highest rated categories in our sample&quot;, 
+    y = &quot;Rating&quot;, 
+    x = &quot;Genre&quot;) +
+  
+  # Setting the theme and removing the legend
+  theme_bw() + 
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/blogs/blog1_files/figure-html/unnamed-chunk-5-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>As said earlier, I am now removing the the three least well rated genre.</p>
+<pre class="r"><code># Remove Comedy and Mystery
+movies_final &lt;- movies_new %&gt;% 
+  filter(genre %in% c(&quot;Drama&quot;, &quot;Biography&quot;, &quot;Crime&quot;, &quot;Adventure&quot;))</code></pre>
+<p>However, if I keep my list as such, I will simply have too much movies on it. I need to find a way to reduce it.
+I think that the number of facebook likes might be of interest, I’ll only select movies with a rating higher than 7.5.</p>
+<pre class="r"><code>movies_final &lt;- movies_final %&gt;%
+  select(title, cast_facebook_likes,  year, rating, duration, genre) %&gt;% 
+  filter(rating &gt; 7.5) %&gt;% 
+  arrange(desc(cast_facebook_likes)) 
+
+movies_final  </code></pre>
+<pre><code>## # A tibble: 23 x 6
+##    title                   cast_facebook_likes  year rating duration genre    
+##    &lt;chr&gt;                                 &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
+##  1 The Revenant                          57108  2015    8.1      156 Adventure
+##  2 The Hateful Eight                     49912  2015    7.9      187 Crime    
+##  3 Les Miserables                        46204  2012    7.6      158 Drama    
+##  4 The Wolf of Wall Street               46057  2013    8.2      240 Biography
+##  5 The Departed                          45648  2006    8.5      151 Crime    
+##  6 Django Unchained                      40978  2012    8.5      165 Drama    
+##  7 Prisoners                             37321  2013    8.1      153 Crime    
+##  8 Zodiac                                36928  2007    7.7      162 Crime    
+##  9 Almost Famous                         36897  2000    7.9      152 Adventure
+## 10 Inglourious Basterds                  36741  2009    8.3      153 Adventure
+## # ... with 13 more rows</code></pre>
+<p>And voila, I now have my watch list, I’ll watch the movies in order of facebook likes.</p>
+<p>For fun, I’ll also calculate the time needed to complete my watch list, in terms of hours but also in terms of days, assuming I can watch 8 hours per day.</p>
+<pre class="r"><code>movies_duration &lt;- movies_final %&gt;%
+  group_by(genre) %&gt;% 
+  summarise(total_time = sum(duration)/60, 
+            days = total_time/8) %&gt;% 
+  arrange(desc(total_time))
+
+movies_duration</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##   genre     total_time  days
+##   &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
+## 1 Crime           16.7  2.09
+## 2 Adventure       16.1  2.01
+## 3 Drama           16.1  2.01
+## 4 Biography       15.2  1.90</code></pre>
+<p>We see that I will watch mostly Drama movies in terms of duration, with no less than 4 days to complete this single genre.</p>
+<p>I cannot wait to begin the first movie: <strong>The revenant</strong> with Leonardo Di Caprio.</p>
+<div class="figure">
+<img src="https://m.media-amazon.com/images/M/MV5BMDE5OWMzM2QtOTU2ZS00NzAyLWI2MDEtOTRlYjIxZGM0OWRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="" />
+<p class="caption">The Revenant</p>
+</div>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>
