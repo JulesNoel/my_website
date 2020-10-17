@@ -717,10 +717,10 @@ plot_top_10 <- CA_contributors_2016_adapted %>%
   theme_bw()
 
 # save the plot
-ggsave("top10plot.jpg",plot=plot_top_10,width = 15,height = 10, path = here::here("images"))
+ggsave("top10plot.png",plot=plot_top_10,width = 15,height = 10, path = here::here("images"))
 
 # show the plot
-knitr::include_graphics(here::here("images", "top10plot.jpg"))
+knitr::include_graphics(here::here("images", "top10plot.png"))
 
 ```
 
