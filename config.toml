@@ -101,13 +101,13 @@ disqusShortname = ""
       title = "A Movie List"
       subtitle = "Constructing my watch list"
       image = "pic02.jpg"
-      url = "content/projects/blog1"
+      url = "projects/blog1"
 
     [[params.tiles.showcase]]
       title = "Homework 2"
       subtitle = "Lorem Etiam Nullam"
       image = "pic03.jpg"
-      url = "content/projects/project2"
+      url = "projects/project2"
 
   #  [[params.tiles.showcase]]
    #   title = "Ipsum"
