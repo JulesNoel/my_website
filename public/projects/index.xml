@@ -18,6 +18,36 @@
     </item>
     
     <item>
+      <title>Session 4: Homework 2</title>
+      <link>/projects/project3/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project3/</guid>
+      <description>Climate change and temperature anomaliesBeforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
+tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for
+year,month, anddelta, or temperature deviation.</description>
+    </item>
+    
+    <item>
+      <title>Session 6: Homework 3</title>
+      <link>/projects/project4/</link>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project4/</guid>
+      <description>Youth Risk Behavior SurveillanceWe want to explore some statistics to analyze health patterns from the CDC.Every two years, the Centers for Disease Control and Prevention conduct the Youth Risk Behavior Surveillance System (YRBSS) survey, where it takes data from high schoolers (9th through 12th grade), to analyze health patterns.
+data(yrbss)glimpse(yrbss)## Rows: 13,583## Columns: 13## $ age &amp;lt;int&amp;gt; 14, 14, 15, 15, 15, 15, 15, 14, 15, 15, 15.</description>
+    </item>
+    
+    <item>
+      <title>index</title>
+      <link>/projects/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Project 1</title>
       <link>/projects/project1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

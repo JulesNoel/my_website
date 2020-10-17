@@ -53,7 +53,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "My CV"
-      url = "blogs/ipsum"
+      url = "projects/CV"
 
    # [[params.navigation.links]]
      # name = "Elements"
@@ -101,25 +101,25 @@ disqusShortname = ""
       title = "A Movie List"
       subtitle = "Constructing my watch list"
       image = "pic02.jpg"
-      url = "projects/blog1"
+      url = "projects/project1"
 
     [[params.tiles.showcase]]
-      title = "Homework 2"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
-      url = "projects/drinks"
+      title = "A story of drinking"
+      subtitle = ""
+      image = "projects/drinks.jpg"
+      url = "projects/project2"
 
-  #  [[params.tiles.showcase]]
-   #   title = "Ipsum"
-    #  subtitle = "Nisl Sed Aliquam"
-     # image = "pic04.jpg"
-      #url = "blogs/ipsum"
+    [[params.tiles.showcase]]
+     title = "Home2"
+      subtitle = "Nisl Sed Aliquam"
+      image = "pic04.jpg"
+      url = "projects/project3"
 
-    #[[params.tiles.showcase]]
-     # title = "Consequat"
-      #subtitle = "Ipsum Dolor Sit Amet"
-      #image = "pic05.jpg"
-      #url = "blogs/ipsum"
+    [[params.tiles.showcase]]
+      title = "Home3"
+      subtitle = "Ipsum Dolor Sit Amet"
+      image = "pic05.jpg"
+      url = "projects/project4"
 
   #  [[params.tiles.showcase]]
    #   title = "Etiam"

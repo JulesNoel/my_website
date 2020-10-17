@@ -515,9 +515,9 @@ graph <- ggplot(graph_data,
               breaks = c(7.5, 5, 2.5,0.0,-2.5, -5.0, -7.5, -10.0, -12.5, -15.0, -17.5, -20.0)) +# Setting up the intervals on the axis
   scale_x_continuous(breaks = c(0, 13, 26, 39, 52))
 
-ggsave("graph_trump.png", width = 12, height = 5, dpi = 600) #Save the graph locally
+ggsave("graph_trump.png", width = 12, height = 5, dpi = 600, path = here::here("images")) #Save the graph locally
 
-knitr::include_graphics(here::here("graph_trump.png")) #Display the graph
+knitr::include_graphics(here::here("images", "graph_trump.png")) #Display the graph
 
 ```
 
@@ -731,8 +731,8 @@ plot_2 <- ggplot(mortality_bottom_five, aes(x = change, y = reorder(country, cha
   labs(y = "", x = "Percentage change in mortality rate since 1990", title="Some nations even experienced increased in their mortality rate under 5") + 
   scale_x_reverse()
 
-ggsave("Plot_2.png", width = 10, height = 6, dpi = 200)
-knitr::include_graphics(here::here("Plot_2.png"), error = FALSE)
+ggsave("Plot_2.png", width = 10, height = 6, dpi = 200, path = here::here("images"))
+knitr::include_graphics(here::here("images", "Plot_2.png"), error = FALSE)
 
 ```
 
@@ -847,8 +847,8 @@ graph_1<-ggplot(covid_data_grouped_by_medcond, aes(x=death_rate, y=age_group)) +
   theme(legend.position = "none") + 
   labs(caption = "Source: CDC")
   
-ggsave("Co-morbid.png", width = 20, height = 12, dpi = 200)
-knitr::include_graphics(here::here("Co-morbid.png"), error = FALSE)
+ggsave("Co-morbid.png", width = 20, height = 12, dpi = 200, path = here::here("images"))
+knitr::include_graphics(here::here("images","Co-morbid.png"), error = FALSE)
 ```
 It can be seen that there is a clear correlation between age and mortality rate. The same holds true for earlier diagnosis of co-morbidities and mortality rate. Another interesting inference is that there is a higher probability of men dying from COVID than of women.
 
@@ -888,8 +888,8 @@ graph_2 <- ggplot(covid_data_grouped_by_icu, aes(x=death_rate, y=age_group)) +
   labs(caption = "Source: CDC")
 
 
-ggsave("ICU_or_not.png", width = 20, height = 12, dpi = 200)
-knitr::include_graphics(here::here("ICU_or_not.png"), error = FALSE)
+ggsave("ICU_or_not.png", width = 20, height = 12, dpi = 200,path = here::here("images"))
+knitr::include_graphics(here::here("images","ICU_or_not.png"), error = FALSE)
 
 ```
 Here it can be clearly seen that on average a much higher percentage of people who were admitted to the ICU died. Again we can also see that men and older people are more likely to die.
@@ -999,10 +999,10 @@ excess_rentals_graph1 <- ggplot(bike_interpolated, aes(x = nat.x,y= nat.y)) +  f
         plot.caption = element_text(face = "bold"))
 
 # This line saves the graph as a .jpg file
-ggsave("excess_rentals_graph1.jpg",plot=excess_rentals_graph1,width = 20,height = 8)
+ggsave("excess_rentals_graph1.jpg",plot=excess_rentals_graph1,width = 20,height = 8, path = here::here("images"))
 
 # And this line includes the above mentioned picture in the HTML knited file
-knitr::include_graphics(here::here("excess_rentals_graph1.jpg"))
+knitr::include_graphics(here::here("images","excess_rentals_graph1.jpg"))
 
   
 ```
@@ -1078,11 +1078,11 @@ geom_ribbon(aes(ymin = rentals_change, ymax = pmin(0,rentals_change), fill = "Be
  coord_fixed(ratio = 25)
 
 # This line saves the graph as a .jpg file
-ggsave("excess_rentals_graph2.jpg",plot=excess_rentals_graph2,width = 10,height = 8)
+ggsave("excess_rentals_graph2.jpg",plot=excess_rentals_graph2,width = 10,height = 8, path = here::here("images"))
 
 
 # # And this line includes the above mentioned picture in the HTML knited file
-knitr::include_graphics(here::here("excess_rentals_graph2.jpg"))
+knitr::include_graphics(here::here("images","excess_rentals_graph2.jpg"))
 
 ```
 In our opinion, we should use the median to calculate the expected rentals. Just as it was pointed in the graph "Distribution of bikes hired per month", there are months that are completely skewed or that have a very low kurtosis (April to June of 2020), then, if we would use the average, the impact of these "outliers" would affect our data and produce results that don't really express the central tendency(median) about the hiring of Boris Bikes.

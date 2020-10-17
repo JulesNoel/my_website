@@ -1,0 +1,14 @@
+---
+title: "index"
+author: "Jules"
+date: "17/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE}
+knitr::include_graphics(here::here("images", "Jules Noel - Resume.jpg"), error = FALSE)
+```
