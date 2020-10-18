@@ -28,11 +28,11 @@ disqusShortname = ""
   favicon    = "favicon.ico"
 
   # Just a custom image variable, please define it in .md files for content.
-  image = ""
+  image = "/img/Jsymbol"
 
   # 404 error customization
   [params.error404]
-    heading = "Page couldn't be found"
+    heading = "Oops, it seems we have an error404!"
     text = "Please visit [this page](/)"
 
   # Navigation Section
@@ -67,9 +67,9 @@ disqusShortname = ""
     #    url = "UrlOfLink"
 
     # Button Style 1
-    [[params.navigation.button1]]
-      name = "Get Started"
-      url = "projects"
+   # [[params.navigation.button1]]
+     # name = "Get Started"
+     # url = "projects"
 
     # Button Style 2
     [[params.navigation.button2]]
@@ -146,13 +146,9 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
+    title = "Professional Profile"
+    subtitle = """Masters in Financial Analysis student at London Business School with past experience in the financial planning and strategy sector through internships from start-up to Nike; currently seeking summer investment banking internships."""
+    buttonText = "Download my CV"
     url = "projects/Jules Noel - Resume.pdf"
 
 
@@ -182,9 +178,9 @@ disqusShortname = ""
     title = "Email"
     email = "jules.noel@hotmail.com"
 
-   # [[params.contact.phone]]
-  #  title = "Phone"
-  #  phone = "(000) 000-0000 x1234"
+    [[params.contact.phone]]
+    title = "Phone"
+    phone = "+32 479 13 09 55"
 
     [[params.contact.address]]
     title = "Address"
