@@ -492,10 +492,10 @@ p <- ggplot(data=CDC_Males_adapted,
   NULL
 
 # Save picture
-ggsave("challenge1.jpg", plot = p, width = 6, height = 4, path = here::here("images"))
+ggsave(filename = "challenge1.jpg", plot = p, width = 6, height = 4)
 
 # Show picture
-knitr::include_graphics(here::here("images", "challenge1.jpg"))
+knitr::include_graphics("challenge1.jpg")
 ```
 
 

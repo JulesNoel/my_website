@@ -6,16 +6,28 @@
     <description>Recent content in Projects on Portfolio website of Jules Noël</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alcohol Consumption</title>
       <link>/projects/project2/</link>
-      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project2/</guid>
       <description>Where Do People Drink The Most Beer, Wine And Spirits?In this project realised with my group at London Business School for the course “Data Analytics for Finance”, we will explore a dataset on the consumption and production of alcohol.
 # Loading the datalibrary(fivethirtyeight)data(drinks)We’ll check first for any missing variable. Fortunately, our dataset is complete and we have no missing values.
 # Using glimpse and skim to understand the dataframeglimpse(drinks)## Rows: 193## Columns: 5## $ country &amp;lt;chr&amp;gt; &amp;quot;Afghanistan&amp;quot;, &amp;quot;Albania&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>The genius of Steven Spilberg</title>
+      <link>/projects/project4/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project4/</guid>
+      <description>A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
+Our Null Hypothesis: The true difference in means is equal to 0.
+Alternative hypothesis: The true difference in means is not equal to 0.
+To test this hypothesis, we will use both the t.test command and the infer package to simulate from a null distribution, where you assume zero difference between the two.</description>
     </item>
     
     <item>
@@ -27,18 +39,6 @@
       <description>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
 Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
 tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for</description>
-    </item>
-    
-    <item>
-      <title>The genius of Steven Spilberg</title>
-      <link>/projects/project4/</link>
-      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project4/</guid>
-      <description>A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
-Our Null Hypothesis: The true difference in means is equal to 0.
-Alternative hypothesis: The true difference in means is not equal to 0.
-To test this hypothesis, we will use both the t.test command and the infer package to simulate from a null distribution, where you assume zero difference between the two.</description>
     </item>
     
     <item>
@@ -78,7 +78,7 @@ In order to construct such list, I am going to explore the data movies used duri
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/cv/</guid>
-      <description>knitr::include_graphics(here::here(&amp;quot;images&amp;quot;, &amp;quot;Jules Noel - Resume.jpg&amp;quot;))</description>
+      <description>knitr::include_graphics(&amp;quot;Jules Noel - Resume.jpg&amp;quot;)</description>
     </item>
     
     <item>
