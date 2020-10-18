@@ -48,7 +48,7 @@ library(scales)
 
 
 ```{r directors, echo=FALSE, include = FALSE, out.width="100%"}
-knitr::include_graphics("img/images/directors.png")
+knitr::include_graphics("images, ""directors.png")
 ```
 
 A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
@@ -143,11 +143,10 @@ graph_directors <-
 # Saving our graph
 ggsave("graph_directors.jpg",
        plot=graph_directors,
-       width = 10,height = 6, 
-       path = here::here("images"))
+       width = 10,height = 6)
 
 # Displaying the graph
-knitr::include_graphics(here::here("images", "graph_directors.jpg"))
+knitr::include_graphics("graph_directors.jpg")
 
 ```
 
