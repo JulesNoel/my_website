@@ -47,7 +47,7 @@ library(scales)
 ```
 
 
-```{r directors, echo=FALSE, out.width="90%"}
+```{r directors, echo=FALSE, include = FALSE, out.width="90%"}
 knitr::include_graphics("directors.png")
 ```
 

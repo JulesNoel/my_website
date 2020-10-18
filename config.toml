@@ -153,7 +153,7 @@ disqusShortname = ""
     Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
     Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
     buttonText = "Get Started"
-    url = "blogs"
+    url = "projects/Jules Noel - Resume.pdf"
 
 
   # Contact section
