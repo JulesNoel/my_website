@@ -19,6 +19,17 @@
     </item>
     
     <item>
+      <title>Climate Change Anomalies</title>
+      <link>/projects/project3/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project3/</guid>
+      <description>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
+Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
+tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for</description>
+    </item>
+    
+    <item>
       <title>The genius of Steven Spilberg</title>
       <link>/projects/project4/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
@@ -28,17 +39,6 @@
 Our Null Hypothesis: The true difference in means is equal to 0.
 Alternative hypothesis: The true difference in means is not equal to 0.
 To test this hypothesis, we will use both the t.test command and the infer package to simulate from a null distribution, where you assume zero difference between the two.</description>
-    </item>
-    
-    <item>
-      <title>Climate Change Anomalies</title>
-      <link>/projects/project3/</link>
-      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project3/</guid>
-      <description>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
-Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
-tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for</description>
     </item>
     
     <item>
@@ -78,7 +78,7 @@ In order to construct such list, I am going to explore the data movies used duri
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/cv/</guid>
-      <description>knitr::include_graphics(&amp;quot;Jules Noel - Resume.jpg&amp;quot;)</description>
+      <description></description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@ In order to construct such list, I am going to explore the data movies used duri
       <guid>/projects/australia/</guid>
       <description>During the third year of my Bachelor at Maastricht University, I had the opportunity to study abroad for a semester in Australia.After long reflections, I decided to follow my courses at the University of New South Wales in Sydney.
 My travel starts on the 13th July with my first long haul trip. Directly after my arrival, at night, I will go to Coogee Beach.
-knitr::include_graphics(here::here(&amp;quot;static/img/images/Australia&amp;quot;, &amp;quot;arrival.jpg&amp;quot;))This, is Coogee Beach, the beach ten minutes walk away from my apartment.</description>
+This, is Coogee Beach, the beach ten minutes walk away from my apartment.</description>
     </item>
     
     <item>

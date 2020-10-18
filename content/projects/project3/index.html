@@ -1,7 +1,7 @@
 ---
 title: "Climate Change Anomalies"
 author: "Group 26"
-date: "2020-10-17"
+date: "2020-10-18"
 output:
   html_document:
     theme: flatly
@@ -53,7 +53,9 @@ ggplot(tidyweather, aes(x=date, y = delta))+
   geom_smooth(color=&quot;red&quot;) +
   theme_bw() +
   labs (title = &quot;Weather anomalies changes are constant throughout the months&quot;,
-    subtitle = &quot;Weather Anomalies&quot;, x=&quot;Year&quot;, y=&quot;Temperature Delta&quot;
+    subtitle = &quot;Weather Anomalies&quot;, 
+    x=&quot;Year&quot;, 
+    y=&quot;Temperature Delta&quot;
   )+
   facet_wrap(~month)</code></pre>
 <p><img src="/projects/project3/index_files/figure-html/facet_wrap-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -76,7 +78,7 @@ ggplot(tidyweather, aes(x=date, y = delta))+
   labs (
     title = &quot;More recent periods see increasingly positive weather anomalies&quot;,
      subtitle = &quot;Distribution of weather anomalies by time period&quot;,
-    y     = &quot;Density&quot;         #changing y-axis label to sentence case
+    y = &quot;Density&quot;         #changing y-axis label to sentence case
     ,x = &quot;Temperature Delta&quot;
   )</code></pre>
 <p><img src="/projects/project3/index_files/figure-html/density_plot-1.png" width="648" style="display: block; margin: auto;" /></p>

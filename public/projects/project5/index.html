@@ -212,7 +212,10 @@ stocks &lt;- data.frame(nyse) %&gt;%
 
 ggplot(data = stocks, aes(y= reorder(sector,n), x=n))+
   geom_bar(stat=&#39;identity&#39;)+
-  labs(x=&quot;Number of companies&quot;, y=&quot;Sector&quot;, title = &quot;Number of companies listed in the NYSE by sector&quot;)</code></pre>
+  labs(
+    x=&quot;Number of companies&quot;, 
+    y=&quot;Sector&quot;, 
+    title = &quot;Number of companies listed in the NYSE by sector&quot;)</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/companies_per_sector-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>To continue our analysis, we are choosing six stocks “BLK”, “JPM”, “CS”, “GS”, “MS”, “RY”, “UBS”, “SPY”.</p>
 <pre class="r"><code># Notice the cache=TRUE argument in the chunk options. Because getting data is time consuming, 
@@ -268,22 +271,39 @@ myStocks_returns_annual &lt;- myStocks %&gt;%
 <p>Now we want to see the performance of our chosen stocks.</p>
 <pre class="r"><code>#Summarising the information about the monthly returns of the chosen stocks and calculating the min,max, median, mean and SD for each of the companies
   analysis&lt;- myStocks_returns_monthly %&gt;%
-  summarize(mean_return=mean(monthly_returns),median_return=median(monthly_returns),sd_return=sd(monthly_returns),min_return=min(monthly_returns),max_return=max(monthly_returns))%&gt;%
+  summarize(
+    mean_return=mean(monthly_returns),
+    median_return=median(monthly_returns),
+    sd_return=sd(monthly_returns),
+    min_return=min(monthly_returns),
+    max_return=max(monthly_returns))%&gt;%
   arrange(desc(mean_return))</code></pre>
 <p>For our last two analysis, we will first plot the density of monthly returns for each stock.</p>
 <pre class="r"><code># Plotting a density chart of the monthly returns for each of the stocks
 ggplot(myStocks_returns_monthly, 
        aes(x= monthly_returns*100))+
   geom_density(kernel=&quot;gaussian&quot;)+
-  labs(title=&quot;Density of Monthly Returns&quot;, x=&quot;Monthly Return(in %)&quot;, y=&quot;Density&quot;) + 
+  labs(
+    title=&quot;Density of Monthly Returns&quot;, 
+    x=&quot;Monthly Return(in %)&quot;, 
+    y=&quot;Density&quot;) + 
   facet_wrap(~symbol)</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/density_monthly_returns-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>What can you infer from this plot? Which stock is the riskiest? The least risky?</p>
 <p>From the plot it is clear to see that the individuals stocks are more risky than the ETF as their returns are more variable. Morgan Stanley is the riskiest stock with a volatility (standar deviation of the monthly returns) of 9.28% and the least risky, as it was expected, it is the SPY Index with a volatility of 3.81%. This was expected since the ETF is a combination of 500 stocks, which has its systematic risk lowered through diversification.</p>
 <p>Lastly, we have a look at the standard deviation against the mean for our six stocks.</p>
 <pre class="r"><code>#Plotting the standard deviation against the mean return for the stocks chosen 
-ggplot(analysis, aes(x=sd_return*100, y=mean_return*100,label= symbol))+geom_point() + geom_text_repel()+ 
-  labs(title=&quot;Relation between the Mean Return and Standard Deviation&quot;, x=&quot;Standard Deviation (in %)&quot;, y=&quot;Mean Return (in %)&quot;)</code></pre>
+ggplot(analysis, 
+       aes(
+         x=sd_return*100, 
+         y=mean_return*100,
+         label= symbol))+
+  geom_point() + 
+  geom_text_repel()+ 
+  labs(
+    title=&quot;Relation between the Mean Return and Standard Deviation&quot;, 
+    x=&quot;Standard Deviation (in %)&quot;,
+    y=&quot;Mean Return (in %)&quot;)</code></pre>
 <p><img src="/projects/project5/index_files/figure-html/risk_return_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>From the plot we can see that CS is the worst performing stock within this group and it is the second most risky, which means that it has the lowest sharpe ratio (Return/Volatility), this way, it would have been the worst choice. On the other hand, you can also see that BlackRock (BLK) is the one with the greatest mean return while having a medium volatility compared to its peers. Lastly, comparing Morgan Stanley (MS) with SPY, it’s clear to see that it would not have been worth to invest in it as the historical mean returns of both assets were similar.</p>
 

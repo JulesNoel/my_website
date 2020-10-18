@@ -47,7 +47,7 @@ library(tidytext)
 In this project, we learned how to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
 
 ```{r challenge2, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "challenge2.png"), error = FALSE)
+knitr::include_graphics("challenge2.png", error = FALSE)
 ```
 
 
@@ -105,10 +105,10 @@ clinton_trump_top10 <- clinton + trump +
                plot.caption = element_text(hjust = 0.55, vjust = 0.5, face = "bold"))
 
 # Save the graph to then display it
-ggsave("challenge_accepted.jpg", plot = clinton_trump_top10, width = 9, height = 4, path = here::here("images"))
+ggsave("challenge_accepted.jpg", plot = clinton_trump_top10, width = 9, height = 4)
 
 # Display groph
-knitr::include_graphics(here::here("images", "challenge_accepted.jpg"))
+knitr::include_graphics("challenge_accepted.jpg")
 ```
 
 In order to create the same plot for the top 10 candidates instead of just top 2, our codes are as follow:
@@ -139,10 +139,10 @@ plot_top_10 <- CA_contributors_2016_adapted %>%
   theme_bw()
 
 # save the plot
-ggsave("top10plot.png",plot=plot_top_10,width = 15,height = 10, path = here::here("images"))
+ggsave("top10plot.png",plot=plot_top_10,width = 15,height = 10)
 
 # show the plot
-knitr::include_graphics(here::here("images", "top10plot.png"))
+knitr::include_graphics("top10plot.png")
 
 ```
 

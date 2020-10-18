@@ -66,7 +66,10 @@ stocks <- data.frame(nyse) %>%
 
 ggplot(data = stocks, aes(y= reorder(sector,n), x=n))+
   geom_bar(stat='identity')+
-  labs(x="Number of companies", y="Sector", title = "Number of companies listed in the NYSE by sector")
+  labs(
+    x="Number of companies", 
+    y="Sector", 
+    title = "Number of companies listed in the NYSE by sector")
 
 
 ```
@@ -122,7 +125,12 @@ Now we want to see the performance of our chosen stocks.
 
 #Summarising the information about the monthly returns of the chosen stocks and calculating the min,max, median, mean and SD for each of the companies
   analysis<- myStocks_returns_monthly %>%
-  summarize(mean_return=mean(monthly_returns),median_return=median(monthly_returns),sd_return=sd(monthly_returns),min_return=min(monthly_returns),max_return=max(monthly_returns))%>%
+  summarize(
+    mean_return=mean(monthly_returns),
+    median_return=median(monthly_returns),
+    sd_return=sd(monthly_returns),
+    min_return=min(monthly_returns),
+    max_return=max(monthly_returns))%>%
   arrange(desc(mean_return))
 
 ```
@@ -134,7 +142,10 @@ For our last two analysis, we will first plot the density of monthly returns for
 ggplot(myStocks_returns_monthly, 
        aes(x= monthly_returns*100))+
   geom_density(kernel="gaussian")+
-  labs(title="Density of Monthly Returns", x="Monthly Return(in %)", y="Density") + 
+  labs(
+    title="Density of Monthly Returns", 
+    x="Monthly Return(in %)", 
+    y="Density") + 
   facet_wrap(~symbol)
 
 ```
@@ -148,8 +159,17 @@ Lastly, we have a look at the standard deviation against the mean for our six st
 ```{r risk_return_plot}
 
 #Plotting the standard deviation against the mean return for the stocks chosen 
-ggplot(analysis, aes(x=sd_return*100, y=mean_return*100,label= symbol))+geom_point() + geom_text_repel()+ 
-  labs(title="Relation between the Mean Return and Standard Deviation", x="Standard Deviation (in %)", y="Mean Return (in %)")
+ggplot(analysis, 
+       aes(
+         x=sd_return*100, 
+         y=mean_return*100,
+         label= symbol))+
+  geom_point() + 
+  geom_text_repel()+ 
+  labs(
+    title="Relation between the Mean Return and Standard Deviation", 
+    x="Standard Deviation (in %)",
+    y="Mean Return (in %)")
 
 ```
 

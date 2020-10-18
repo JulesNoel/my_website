@@ -46,31 +46,33 @@ During the third year of my Bachelor at Maastricht University, I had the opportu
 After long reflections, I decided to follow my courses at the University of New South Wales in Sydney.
 
 My travel starts on the 13th July with my first long haul trip. Directly after my arrival, at night, I will go to Coogee Beach.
-```{r}
-knitr::include_graphics(here::here("static/img/images/Australia", "arrival.jpg"))
+
+```{r, echo = FALSE}
+knitr::include_graphics("arrival.jpg")
 
 ```
 This, is Coogee Beach, the beach ten minutes walk away from my apartment. This is definitely the beach I went the most to.
 
-```{r}
-knitr::include_graphics(here::here("static/img/images/Australia", "coogee.jpg"))
+```{r, echo = FALSE}
+knitr::include_graphics("coogee.jpg")
 ```
 Exert for the food addict, you need to go eat a burger at Burger Barrel on Coogee Beach. I love burgers and these ones were the best I had in my entire life.
 
-```{r}
-knitr::include_graphics(here::here("static/img/images/Australia", "barrel.jpg"))
+```{r, echo = FALSE}
+knitr::include_graphics("barrel.jpg")
 ```
 Tempting right ? 
 
-So, apart from eating burgers and sometimes studying I travelled a lot. Notable to the Gold Coast to visit a friend that was unfortunately soon leaving Australia. 
+So, apart from eating burgers and sometimes studying I traveled a lot. Notably to the Gold Coast to visit a friend that was unfortunately soon leaving Australia. 
 The Gold Coast, it is a bit like Miami but in Australia, judge by yourself: 
 
-```{r}
-knitr::include_graphics(here::here("static/img/images/Australia", "gold.jpg"))
+```{r, echo = FALSE}
+knitr::include_graphics("gold.jpg")
 ```
 
 Next stop: visiting a natural reserve with kangouroos living in freedom. However, they are accustomed to humans, we thus had the opportunity to witness these beauties closely. 
 
-```{r}
-knitr::include_graphics(here::here("static/img/images/Australia", "gold.jpg"))
+```{r, echo = FALSE}
+knitr::include_graphics("gold.jpg")
 ```
+This was only during my first week... Stay tuned for the rest of this journey! 

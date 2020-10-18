@@ -82,7 +82,7 @@
 
 
 <p>In this project, we learned how to reproduce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
-<p><img src="C:/Users/NOEL Jules/Music/Data Analysis/Individual Web Portfolio/my_website/images/challenge2.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="challenge2.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
 zip_code &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
 
@@ -136,11 +136,11 @@ clinton_trump_top10 &lt;- clinton + trump +
                plot.caption = element_text(hjust = 0.55, vjust = 0.5, face = &quot;bold&quot;))
 
 # Save the graph to then display it
-ggsave(&quot;challenge_accepted.jpg&quot;, plot = clinton_trump_top10, width = 9, height = 4, path = here::here(&quot;images&quot;))
+ggsave(&quot;challenge_accepted.jpg&quot;, plot = clinton_trump_top10, width = 9, height = 4)
 
 # Display groph
-knitr::include_graphics(here::here(&quot;images&quot;, &quot;challenge_accepted.jpg&quot;))</code></pre>
-<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/challenge_accepted.jpg" width="1350" style="display: block; margin: auto;" /></p>
+knitr::include_graphics(&quot;challenge_accepted.jpg&quot;)</code></pre>
+<p><img src="challenge_accepted.jpg" width="1350" style="display: block; margin: auto;" /></p>
 <p>In order to create the same plot for the top 10 candidates instead of just top 2, our codes are as follow:</p>
 <pre class="r"><code># We need to by candidates and select the top 10
 top_10_candidates &lt;- CA_contributors_2016 %&gt;%
@@ -166,11 +166,11 @@ plot_top_10 &lt;- CA_contributors_2016_adapted %&gt;%
   theme_bw()
 
 # save the plot
-ggsave(&quot;top10plot.png&quot;,plot=plot_top_10,width = 15,height = 10, path = here::here(&quot;images&quot;))
+ggsave(&quot;top10plot.png&quot;,plot=plot_top_10,width = 15,height = 10)
 
 # show the plot
-knitr::include_graphics(here::here(&quot;images&quot;, &quot;top10plot.png&quot;))</code></pre>
-<p><img src="C:/Users/NOEL%20Jules/Music/Data%20Analysis/Individual%20Web%20Portfolio/my_website/images/top10plot.png" width="2250" style="display: block; margin: auto;" /></p>
+knitr::include_graphics(&quot;top10plot.png&quot;)</code></pre>
+<p><img src="top10plot.png" width="2250" style="display: block; margin: auto;" /></p>
 
                         </div>
                     </section>

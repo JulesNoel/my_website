@@ -105,7 +105,9 @@ ggplot(tidyweather, aes(x=date, y = delta))+
   geom_smooth(color="red") +
   theme_bw() +
   labs (title = "Weather anomalies changes are constant throughout the months",
-    subtitle = "Weather Anomalies", x="Year", y="Temperature Delta"
+    subtitle = "Weather Anomalies", 
+    x="Year", 
+    y="Temperature Delta"
   )+
   facet_wrap(~month)
   
@@ -143,7 +145,7 @@ ggplot(comparison, aes(x=delta, fill=interval))+
   labs (
     title = "More recent periods see increasingly positive weather anomalies",
      subtitle = "Distribution of weather anomalies by time period",
-    y     = "Density"         #changing y-axis label to sentence case
+    y = "Density"         #changing y-axis label to sentence case
     ,x = "Temperature Delta"
   )
 
