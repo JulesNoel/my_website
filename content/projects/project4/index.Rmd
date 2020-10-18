@@ -48,7 +48,7 @@ library(scales)
 
 
 ```{r directors, echo=FALSE, include = FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "directors.png"), error = FALSE)
+knitr::include_graphics("img/images/directors.png")
 ```
 
 A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
