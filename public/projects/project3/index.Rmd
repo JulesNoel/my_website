@@ -44,10 +44,13 @@ library(vroom)
 library(infer)
 ```
 
+The climate change is one of the greatest challenge faced by our generation. In order to better understand its impact, it is useful to look at empirical data. 
 The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
 
-```{r weather_data, cache=TRUE, include=FALSE}
+First, we need to download some data from the NASA.
 
+```{r weather_data}
+# Loading the data set
 weather <- 
   read_csv("https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.csv", 
            skip = 1, 
@@ -55,7 +58,7 @@ weather <-
 
 ```
 
-Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.
+We will now make some modifications to it and analyze it.
 Let's start by selecting the months from January to December and drop the "periods" variables. 
 
 ```{r tidyweather}
@@ -78,12 +81,13 @@ Let us plot the data using a time-series scatter plot, and add a trendline. To d
 
 
 ```{r scatter_plot}
-
+# Filtering the dates
 tidyweather <- tidyweather %>%
   mutate(date = ymd(paste(as.character(Year), month, "1")),
          month = month(date, label=TRUE),
          year = year(date))
 
+# Constructing the grpah 
 ggplot(tidyweather, aes(x=date, y = delta))+
   geom_point(alpha=0.8)+
   geom_smooth(color="red") +
@@ -182,8 +186,6 @@ ggplot(average_annual_anomaly, aes(x=Year, y= annual_average_delta))+
 
 
 ## Confidence Interval for `delta`
-
-
 
 We are now going to construct a confidence interval for the average annual delta since 2011, both using a formula and using a bootstrap simulation with the `infer` package.
 

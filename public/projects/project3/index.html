@@ -61,8 +61,6 @@
         <ul class="actions vertical">
             
             
-                <li><a href="/" class="button fit">Log In</a></li>
-            
         </ul>
     </nav>
 
@@ -81,8 +79,15 @@
 <script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
-<p>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.</p>
-<p>Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.
+<p>The climate change is one of the greatest challenge faced by our generation. In order to better understand its impact, it is useful to look at empirical data.
+The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.</p>
+<p>First, we need to download some data from the NASA.</p>
+<pre class="r"><code># Loading the data set
+weather &lt;- 
+  read_csv(&quot;https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.csv&quot;, 
+           skip = 1, 
+           na = &quot;***&quot;)</code></pre>
+<p>We will now make some modifications to it and analyze it.
 Let’s start by selecting the months from January to December and drop the “periods” variables.</p>
 <pre class="r"><code>tidyweather&lt;- weather %&gt;% 
   select(Year,Jan:Dec) %&gt;% 
@@ -97,11 +102,13 @@ Let’s start by selecting the months from January to December and drop the “p
 <div id="plotting-information" class="section level2">
 <h2>Plotting Information</h2>
 <p>Let us plot the data using a time-series scatter plot, and add a trendline. To do that, we first need to create a new variable called <code>date</code> in order to ensure that the <code>delta</code> values are plot chronologically.</p>
-<pre class="r"><code>tidyweather &lt;- tidyweather %&gt;%
+<pre class="r"><code># Filtering the dates
+tidyweather &lt;- tidyweather %&gt;%
   mutate(date = ymd(paste(as.character(Year), month, &quot;1&quot;)),
          month = month(date, label=TRUE),
          year = year(date))
 
+# Constructing the grpah 
 ggplot(tidyweather, aes(x=date, y = delta))+
   geom_point(alpha=0.8)+
   geom_smooth(color=&quot;red&quot;) +

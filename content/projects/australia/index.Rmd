@@ -71,8 +71,8 @@ knitr::include_graphics("gold.jpg")
 ```
 
 Next stop: visiting a natural reserve with kangouroos living in freedom. However, they are accustomed to humans, we thus had the opportunity to witness these beauties closely. 
-
 ```{r, echo = FALSE}
-knitr::include_graphics("gold.jpg")
+knitr::include_graphics("kangoorou.jpg")
 ```
-This was only during my first week... Stay tuned for the rest of this journey! 
+
+This was only during my first two weeks... Stay tuned for the rest of this journey! 

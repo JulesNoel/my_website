@@ -51,6 +51,8 @@ library(scales)
 knitr::include_graphics("directors.png")
 ```
 
+This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movis from two famous directors. 
+
 A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
 
 **Our Null Hypothesis: The true difference in means is equal to 0.**

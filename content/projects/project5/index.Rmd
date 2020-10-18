@@ -41,7 +41,7 @@ library(patchwork)
 library(tidytext)
 ```
 
-This project explore the returns of some stocks, we will also have the opportunity to construct our own portfolio and plot it.
+This project, realized in collaboration with my study group at London Business Schoo, explores the returns of some stocks, we will also have the opportunity to construct our own portfolio and plot it.
 
 As usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.
 

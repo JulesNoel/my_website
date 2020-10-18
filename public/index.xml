@@ -13,7 +13,7 @@
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project2/</guid>
-      <description>Where Do People Drink The Most Beer, Wine And Spirits?In this project realised with my group at London Business School for the course “Data Analytics for Finance”, we will explore a dataset on the consumption and production of alcohol.
+      <description>Where Do People Drink The Most Beer, Wine And Spirits?In this project, realized with my group at London Business School for the course “Data Analytics for Finance”, we will explore a dataset on the consumption and production of alcohol.
 # Loading the datalibrary(fivethirtyeight)data(drinks)We’ll check first for any missing variable. Fortunately, our dataset is complete and we have no missing values.
 # Using glimpse and skim to understand the dataframeglimpse(drinks)## Rows: 193## Columns: 5## $ country &amp;lt;chr&amp;gt; &amp;quot;Afghanistan&amp;quot;, &amp;quot;Albania&amp;quot;, &amp;quot;Algeria&amp;quot;, &amp;quot;.</description>
     </item>
@@ -24,9 +24,9 @@
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project3/</guid>
-      <description>The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
-Beforehand, we downloaded a data set on weather anomalies in the past. We will make some modifications to it and analyze it.Let’s start by selecting the months from January to December and drop the “periods” variables.
-tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_longer(2:13, names_to=&amp;quot;month&amp;quot;, values_to = &amp;quot;delta&amp;quot;)Our tidyweather data frame has now three variables now, one each for</description>
+      <description>The climate change is one of the greatest challenge faced by our generation. In order to better understand its impact, it is useful to look at empirical data.The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
+First, we need to download some data from the NASA.
+# Loading the data setweather &amp;lt;- read_csv(&amp;quot;https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.csv&amp;quot;, skip = 1, na = &amp;quot;***&amp;quot;)We will now make some modifications to it and analyze it.</description>
     </item>
     
     <item>
@@ -35,10 +35,9 @@ tidyweather&amp;lt;- weather %&amp;gt;% select(Year,Jan:Dec) %&amp;gt;% pivot_lo
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/project4/</guid>
-      <description>A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
-Our Null Hypothesis: The true difference in means is equal to 0.
-Alternative hypothesis: The true difference in means is not equal to 0.
-To test this hypothesis, we will use both the t.test command and the infer package to simulate from a null distribution, where you assume zero difference between the two.</description>
+      <description>This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movis from two famous directors.
+A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
+Our Null Hypothesis: The true difference in means is equal to 0.</description>
     </item>
     
     <item>
@@ -116,7 +115,7 @@ In order to construct such list, I am going to explore the data movies used duri
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/cv/</guid>
-      <description></description>
+      <description>In case of interest, you can download my CV below my projects on the Home page.</description>
     </item>
     
     <item>
@@ -147,7 +146,7 @@ In order to construct such list, I am going to explore the data movies used duri
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/project5/</guid>
-      <description>This project explore the returns of some stocks, we will also have the opportunity to construct our own portfolio and plot it.
+      <description>This project, realized in collaboration with my study group at London Business Schoo, explores the returns of some stocks, we will also have the opportunity to construct our own portfolio and plot it.
 As usual, we will look first at our dataset to understand it better and ensure there is no missing or duplicated values.
 #Loading the data and getting its Summarynyse &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;nyse.csv&amp;quot;))skim(nyse)(#tab:load_nyse_data)Data summaryNamenyseNumber of rows508Number of columns6_______________________Column type frequency:character6________________________Group variablesNoneVariable type: character</description>
     </item>

@@ -51,7 +51,7 @@ library(tidytext)
 
 # Where Do People Drink The Most Beer, Wine And Spirits?
 
-In this project realised with my group at London Business School for the course "Data Analytics for Finance", we will explore a dataset on the consumption and production of alcohol.
+In this project, realized with my group at London Business School for the course "Data Analytics for Finance", we will explore a dataset on the consumption and production of alcohol. 
 
 ```{r, load_alcohol_data}
 # Loading the data
