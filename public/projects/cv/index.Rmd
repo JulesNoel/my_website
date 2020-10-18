@@ -9,6 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-knitr::include_graphics("Jules Noel - Resume.jpg")
-```
+<img src="Jules Noel - Resume.jpg" alt="drawing" width="800"/>
