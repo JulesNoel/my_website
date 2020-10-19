@@ -51,9 +51,9 @@ disqusShortname = ""
       name = "My trip in Australia"
       url = "projects/australia"
 
-    [[params.navigation.links]]
-      name = "My CV"
-      url = "projects/CV"
+    #[[params.navigation.links]]
+    #  name = "My CV"
+     # url = "projects/CV"
 
    # [[params.navigation.links]]
      # name = "Elements"
@@ -71,10 +71,10 @@ disqusShortname = ""
      # name = "Get Started"
      # url = "projects"
 
-    # Button Style 2
-    #[[params.navigation.button2]]
-     # name = "Log In"
-      #url = "#"
+  #   Button Style 2
+    [[params.navigation.button2]]
+      name = "My CV"
+      url = "projects/CV"
 
 
   # Banner section
