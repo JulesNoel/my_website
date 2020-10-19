@@ -20,9 +20,9 @@ library(here)
 ```
 ## Until now
 
-My name is Jules, I am 21 years old from Belgium and here is my biography.
+My name is Jules Noël, I am 21 years old and from Belgium. Here is my biography.
 
-From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the simple things in life, tried a few sports such as Basketball, fencing on a competing level, or even rowing - *at least, I tried, and fell in the water more times than I actually rowed*. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen. This last experience is **definitely** the one that shaped me the most.
+From my birth to my seventeenth birthday, I lived in Belgium and enjoyed simple things in life. I tried a few sports such as Basketball, Fencing on a competition level, or even rowing - *at least, I tried, and fell in the water more times than I actually rowed*. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen. This last experience is **definitely** the one that shaped me the most.
 
 Then I embarked in a Bachelor of Economics and Business Economics at Maastricht University. This was a great time and I ultimately had the opportunity to exchange at the University of New South Wales in Sydney. **It was an amazing time**. If you one day visit, or return if already did, I'd like to recommend you a few things:
 
@@ -34,7 +34,7 @@ Then I embarked in a Bachelor of Economics and Business Economics at Maastricht 
   
   **3.** Embark on a road trip. I did three, my favorite was from Sydney to Brisbane. I went with my family and got to sponsor a rescued Koala. If you wonder why they need sponsorship, here is the link to their website: [Koala Hospital Website](https://www.koalahospital.org.au/)
 
-Then I went on an internship at *Nike* in the Finance department, where I practiced my financial planning skills and learn from managers on how to lead a team.
+Then I went on an internship at *Nike* in the Finance department, where I practiced my financial planning skills and learned from managers on how to effectively lead a diverse team and position myself to continuously progress.
 
 ***Now here I am***, starting my Masters in Financial Analysis and learning to write in R.
 

@@ -49,7 +49,7 @@ Nowadays I don't really have the time to watch movies. My courses at London Busi
 
 So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found. 
 
-In order to construct such list, I am going to explore the data `movies` used during our first assignment in Data Analytics in Finance. 
+In order to construct such a list, I am going to explore the data `movies` used during our first assignment in Data Analytics in Finance. 
 
 Let's first remind ourselves the composition of the data set. 
 
@@ -63,7 +63,7 @@ glimpse(movies)
 ```
 
 Fortunately, there is no missing values in the data set. It is also already cleaned and tidy. 
-However, we see that there are some duplicates so let's remove them. I am goignto remove these duplicates.
+However, we see that there are some duplicates so let's remove them. I am going to remove these duplicates.
 
 ```{r}
 # Removing duplicates
@@ -135,7 +135,7 @@ ggplot(movies_new,
   theme(legend.position = "none")
 ```
 
-As said earlier, I am now removing the the three least well rated genre. 
+As said earlier, I am now removing the three least well rated genre. 
 
 ```{r}
 # Remove Comedy and Mystery

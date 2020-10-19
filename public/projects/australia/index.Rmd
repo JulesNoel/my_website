@@ -70,7 +70,7 @@ The Gold Coast, it is a bit like Miami but in Australia, judge by yourself:
 knitr::include_graphics("gold.jpg")
 ```
 
-Next stop: visiting a natural reserve with kangouroos living in freedom. However, they are accustomed to humans, we thus had the opportunity to witness these beauties closely. 
+Next stop: visiting a natural reserve with kangaroos living in freedom. However, they are accustomed to humans, we thus had the opportunity to witness these beauties closely. 
 ```{r, echo = FALSE}
 knitr::include_graphics("kangoorou.jpg")
 ```

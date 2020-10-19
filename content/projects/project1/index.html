@@ -9,7 +9,7 @@ output: html_document
 
 <p>Nowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.</p>
 <p>So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found.</p>
-<p>In order to construct such list, I am going to explore the data <code>movies</code> used during our first assignment in Data Analytics in Finance.</p>
+<p>In order to construct such a list, I am going to explore the data <code>movies</code> used during our first assignment in Data Analytics in Finance.</p>
 <p>Let’s first remind ourselves the composition of the data set.</p>
 <pre class="r"><code># Reading the data and analyzing the information
 movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
@@ -256,7 +256,7 @@ skim(movies)</code></pre>
 ## $ reviews             &lt;dbl&gt; 3777, 2843, 1934, 2425, 5312, 3917, 1752, 1752,...
 ## $ rating              &lt;dbl&gt; 7.9, 7.7, 7.0, 8.1, 9.0, 6.5, 8.7, 7.5, 8.5, 7....</code></pre>
 <p>Fortunately, there is no missing values in the data set. It is also already cleaned and tidy.
-However, we see that there are some duplicates so let’s remove them. I am goignto remove these duplicates.</p>
+However, we see that there are some duplicates so let’s remove them. I am going to remove these duplicates.</p>
 <pre class="r"><code># Removing duplicates
 movies_new &lt;- movies %&gt;% 
   distinct(title, .keep_all= TRUE)</code></pre>
@@ -329,7 +329,7 @@ ggplot(movies_new,
   theme_bw() + 
   theme(legend.position = &quot;none&quot;)</code></pre>
 <p><img src="/projects/project1/index_files/figure-html/unnamed-chunk-5-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>As said earlier, I am now removing the the three least well rated genre.</p>
+<p>As said earlier, I am now removing the three least well rated genre.</p>
 <pre class="r"><code># Remove Comedy and Mystery
 movies_final &lt;- movies_new %&gt;% 
   filter(genre %in% c(&quot;Drama&quot;, &quot;Biography&quot;, &quot;Crime&quot;, &quot;Adventure&quot;))</code></pre>

@@ -1,7 +1,7 @@
 ---
 title: "The genius of Steven Spilberg"
 author: "Group 26"
-date: "2020-10-18"
+date: "2020-10-19"
 output:
   html_document:
     theme: flatly
@@ -16,7 +16,7 @@ output:
 <script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
-<p>This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movis from two famous directors.</p>
+<p>This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movies from two famous directors.</p>
 <p>A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.</p>
 <p><strong>Our Null Hypothesis: The true difference in means is equal to 0.</strong></p>
 <p><strong>Alternative hypothesis: The true difference in means is not equal to 0.</strong></p>
@@ -154,6 +154,6 @@ ggplot(data = null_dist_IMBD,
 <pre><code>## # A tibble: 1 x 1
 ##   p_value
 ##     &lt;dbl&gt;
-## 1    0.01</code></pre>
+## 1   0.012</code></pre>
 <p><strong>Conclusion</strong>
-Following our tests, we reject the null hypothesis as the p-value is under our treshold at 95% confidence interval. We can therefore conclude that there is a clear difference between the average rating between Steven Spielberg and Tim Burton. So clearly, Steven Spielberg’ movies have a higher rating than Tim Burton’s.</p>
+Following our tests, we reject the null hypothesis as the p-value is under our treshold at 95% confidence interval. We can therefore conclude that there is a clear difference between the average rating between Steven Spielberg and Tim Burton. So clearly, Steven Spielberg’ movies have a higher rating than Tim Burton’s ones.</p>

@@ -6,7 +6,18 @@
     <description>Recent content on Portfolio website of Jules Noël</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The genius of Steven Spilberg</title>
+      <link>/projects/project4/</link>
+      <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/project4/</guid>
+      <description>This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movies from two famous directors.
+A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
+Our Null Hypothesis: The true difference in means is equal to 0.</description>
+    </item>
+    
     <item>
       <title>Alcohol Consumption</title>
       <link>/projects/project2/</link>
@@ -27,17 +38,6 @@
       <description>The climate change is one of the greatest challenge faced by our generation. In order to better understand its impact, it is useful to look at empirical data.The objective of this project was to explore the temperature anomalies encountered in the last dozens of years.
 First, we need to download some data from the NASA.
 # Loading the data setweather &amp;lt;- read_csv(&amp;quot;https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.csv&amp;quot;, skip = 1, na = &amp;quot;***&amp;quot;)We will now make some modifications to it and analyze it.</description>
-    </item>
-    
-    <item>
-      <title>The genius of Steven Spilberg</title>
-      <link>/projects/project4/</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/project4/</guid>
-      <description>This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movis from two famous directors.
-A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
-Our Null Hypothesis: The true difference in means is equal to 0.</description>
     </item>
     
     <item>
@@ -94,8 +94,8 @@ CA_contributors_2016 &amp;lt;- vroom::vroom(here::here(&amp;quot;data&amp;quot;,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/biography/</guid>
-      <description>Until nowMy name is Jules, I am 21 years old from Belgium and here is my biography.
-From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the simple things in life, tried a few sports such as Basketball, fencing on a competing level, or even rowing - at least, I tried, and fell in the water more times than I actually rowed. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen.</description>
+      <description>Until nowMy name is Jules Noël, I am 21 years old and from Belgium. Here is my biography.
+From my birth to my seventeenth birthday, I lived in Belgium and enjoyed simple things in life. I tried a few sports such as Basketball, Fencing on a competition level, or even rowing - at least, I tried, and fell in the water more times than I actually rowed. However, I stuck with scouts since my fifth birthday and later became a chief, then head chief at seventeen.</description>
     </item>
     
     <item>
@@ -106,7 +106,7 @@ From my birth to my seventeenth birthday, I lived in Belgium and enjoyed the sim
       <guid>/projects/project1/</guid>
       <description>Nowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.
 So I thought, why not already compile a list of movies to watch once the exams are behind me and my internship found.
-In order to construct such list, I am going to explore the data movies used during our first assignment in Data Analytics in Finance.</description>
+In order to construct such a list, I am going to explore the data movies used during our first assignment in Data Analytics in Finance.</description>
     </item>
     
     <item>
@@ -115,7 +115,7 @@ In order to construct such list, I am going to explore the data movies used duri
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/cv/</guid>
-      <description>In case of interest, you can download my CV below my projects on the Home page.</description>
+      <description>In case of interest, you can download my CV on the Home page below my projects.</description>
     </item>
     
     <item>

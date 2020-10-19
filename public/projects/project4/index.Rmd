@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r load-libraries, echo=FALSE}
+```{r load-libraries, echo=FALSE, warning = FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
@@ -51,7 +51,7 @@ library(scales)
 knitr::include_graphics("directors.png")
 ```
 
-This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movis from two famous directors. 
+This project was realized in collaboration with my study group at London Business School. We exercised our R skills by looking at the relative ratings of the movies from two famous directors. 
 
 A couple weeks ago, we analyzed some data on IMBD ratings. Today, we will explore if there is a clear difference in the ratings received between Tim Burton and Steven Spielberg.
 
@@ -193,5 +193,5 @@ null_dist_IMBD %>%
 
 ```
 **Conclusion**
-Following our tests, we reject the null hypothesis as the p-value is under our treshold at 95% confidence interval. We can therefore conclude that there is a clear difference between the average rating between Steven Spielberg and Tim Burton. So clearly, Steven Spielberg' movies have a higher rating than Tim Burton's.
+Following our tests, we reject the null hypothesis as the p-value is under our treshold at 95% confidence interval. We can therefore conclude that there is a clear difference between the average rating between Steven Spielberg and Tim Burton. So clearly, Steven Spielberg' movies have a higher rating than Tim Burton's ones.
 

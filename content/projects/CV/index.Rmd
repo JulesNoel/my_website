@@ -9,6 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
- *In case of interest, you can download my CV below my projects on the Home page.*
+ *In case of interest, you can download my CV on the Home page below my projects.*
 
 <img src="Jules Noel - Resume.jpg" alt="drawing" width="800"/>
