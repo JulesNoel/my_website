@@ -151,7 +151,7 @@ movies_final <- movies_final %>%
   filter(rating > 7.5) %>% 
   arrange(desc(cast_facebook_likes)) 
 
-movies_final  
+movies_final %>% tbl_df %>% rmarkdown::paged_table()
 ```
 
 And voila, I now have my watch list, I'll watch the movies in order of facebook likes.
@@ -165,7 +165,7 @@ movies_duration <- movies_final %>%
             days = total_time/8) %>% 
   arrange(desc(total_time))
 
-movies_duration
+movies_duration %>% tbl_df %>% rmarkdown::paged_table()
 
 ```
 We see that I will watch mostly Drama movies in terms of duration, with no less than 4 days to complete this single genre. 

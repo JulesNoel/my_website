@@ -5,6 +5,8 @@ date: "15/10/2020"
 output: html_document
 ---
 
+<link href="/rmarkdown-libs/pagedtable/css/pagedtable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
 <p>Nowadays I don’t really have the time to watch movies. My courses at London Business School are taking most of my time and the rest of my days are dedicated to my applications to Investment Banks for a summer analyst position.</p>
@@ -340,21 +342,12 @@ I think that the number of facebook likes might be of interest, and I’ll also 
   filter(rating &gt; 7.5) %&gt;% 
   arrange(desc(cast_facebook_likes)) 
 
-movies_final  </code></pre>
-<pre><code>## # A tibble: 23 x 6
-##    title                   cast_facebook_likes  year rating duration genre    
-##    &lt;chr&gt;                                 &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
-##  1 The Revenant                          57108  2015    8.1      156 Adventure
-##  2 The Hateful Eight                     49912  2015    7.9      187 Crime    
-##  3 Les Miserables                        46204  2012    7.6      158 Drama    
-##  4 The Wolf of Wall Street               46057  2013    8.2      240 Biography
-##  5 The Departed                          45648  2006    8.5      151 Crime    
-##  6 Django Unchained                      40978  2012    8.5      165 Drama    
-##  7 Prisoners                             37321  2013    8.1      153 Crime    
-##  8 Zodiac                                36928  2007    7.7      162 Crime    
-##  9 Almost Famous                         36897  2000    7.9      152 Adventure
-## 10 Inglourious Basterds                  36741  2009    8.3      153 Adventure
-## # ... with 13 more rows</code></pre>
+movies_final %&gt;% tbl_df %&gt;% rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["title"],"name":[1],"type":["chr"],"align":["left"]},{"label":["cast_facebook_likes"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["year"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rating"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["duration"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["genre"],"name":[6],"type":["chr"],"align":["left"]}],"data":[{"1":"The Revenant","2":"57108","3":"2015","4":"8.1","5":"156","6":"Adventure"},{"1":"The Hateful Eight","2":"49912","3":"2015","4":"7.9","5":"187","6":"Crime"},{"1":"Les Miserables","2":"46204","3":"2012","4":"7.6","5":"158","6":"Drama"},{"1":"The Wolf of Wall Street","2":"46057","3":"2013","4":"8.2","5":"240","6":"Biography"},{"1":"The Departed","2":"45648","3":"2006","4":"8.5","5":"151","6":"Crime"},{"1":"Django Unchained","2":"40978","3":"2012","4":"8.5","5":"165","6":"Drama"},{"1":"Prisoners","2":"37321","3":"2013","4":"8.1","5":"153","6":"Crime"},{"1":"Zodiac","2":"36928","3":"2007","4":"7.7","5":"162","6":"Crime"},{"1":"Almost Famous","2":"36897","3":"2000","4":"7.9","5":"152","6":"Adventure"},{"1":"Inglourious Basterds","2":"36741","3":"2009","4":"8.3","5":"153","6":"Adventure"},{"1":"Interstellar","2":"31488","3":"2014","4":"8.6","5":"169","6":"Adventure"},{"1":"The Girl with the Dragon Tattoo","2":"20388","3":"2011","4":"7.8","5":"158","6":"Crime"},{"1":"American Gangster","2":"20354","3":"2007","4":"7.8","5":"176","6":"Biography"},{"1":"The Martian","2":"14831","3":"2015","4":"8.1","5":"151","6":"Adventure"},{"1":"The Curious Case of Benjamin Button","2":"13333","3":"2008","4":"7.8","5":"166","6":"Drama"},{"1":"The Hobbit: The Desolation of Smaug","2":"9152","3":"2013","4":"7.9","5":"186","6":"Adventure"},{"1":"Ray","2":"5074","3":"2004","4":"7.7","5":"178","6":"Biography"},{"1":"Black Hawk Down","2":"4270","3":"2001","4":"7.7","5":"152","6":"Drama"},{"1":"Straight Outta Compton","2":"2702","3":"2015","4":"7.9","5":"167","6":"Biography"},{"1":"Traffic","2":"1418","3":"2000","4":"7.6","5":"190","6":"Crime"},{"1":"Walk the Line","2":"1383","3":"2005","4":"7.9","5":"153","6":"Biography"},{"1":"Boyhood","2":"673","3":"2014","4":"8.0","5":"165","6":"Drama"},{"1":"There Will Be Blood","2":"533","3":"2007","4":"8.1","5":"158","6":"Drama"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>And voila, I now have my watch list, I’ll watch the movies in order of facebook likes.</p>
 <p>For fun, I’ll also calculate the time needed to complete my watch list, in terms of hours but also in terms of days, assuming I can watch 8 hours per day.</p>
 <pre class="r"><code>movies_duration &lt;- movies_final %&gt;%
@@ -363,14 +356,12 @@ movies_final  </code></pre>
             days = total_time/8) %&gt;% 
   arrange(desc(total_time))
 
-movies_duration</code></pre>
-<pre><code>## # A tibble: 4 x 3
-##   genre     total_time  days
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;
-## 1 Crime           16.7  2.09
-## 2 Adventure       16.1  2.01
-## 3 Drama           16.1  2.01
-## 4 Biography       15.2  1.90</code></pre>
+movies_duration %&gt;% tbl_df %&gt;% rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["genre"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_time"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["days"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Crime","2":"16.7","3":"2.09"},{"1":"Adventure","2":"16.1","3":"2.01"},{"1":"Drama","2":"16.1","3":"2.01"},{"1":"Biography","2":"15.2","3":"1.90"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>We see that I will watch mostly Drama movies in terms of duration, with no less than 4 days to complete this single genre.</p>
 <p>I cannot wait to begin the first movie: <strong>The revenant</strong> with Leonardo Di Caprio.</p>
 <div class="figure">
