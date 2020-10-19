@@ -168,8 +168,8 @@ movies_duration <- movies_final %>%
 movies_duration %>% tbl_df %>% rmarkdown::paged_table()
 
 ```
-We see that I will watch mostly Drama movies in terms of duration, with no less than 4 days to complete this single genre. 
+We see that I will watch mostly Crime movies in terms of duration, with no less than 2 days to complete this single genre. 
 
-I cannot wait to begin the first movie: **The revenant** with Leonardo Di Caprio.
+I cannot wait to begin the first movie: **The Revenant** with Leonardo Di Caprio.
 
 ![The Revenant](https://m.media-amazon.com/images/M/MV5BMDE5OWMzM2QtOTU2ZS00NzAyLWI2MDEtOTRlYjIxZGM0OWRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UX182_CR0,0,182,268_AL_.jpg)
